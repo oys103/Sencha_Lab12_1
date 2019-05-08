@@ -1,0 +1,218 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "centered": true,
+        "designer|userAlias": "registerupdateform",
+        "designer|userClassName": "RegisterUpdateForm",
+        "modal": true,
+        "title": "Register hours",
+        "titleAlign": "center"
+    },
+    "configAlternates": {
+        "centered": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "modal": "boolean",
+        "title": "string",
+        "bodyPadding": "auto",
+        "titleAlign": "string"
+    },
+    "name": "MyFormPanel",
+    "designerId": "75ef0948-1838-43c6-a1d2-e7682ce4ddfb",
+    "viewControllerInstanceId": "54b9839a-27bc-48a2-a6a1-cbe39fb97844",
+    "viewModelInstanceId": "ddab8727-23e7-474b-89e1-e7326c6a8a5e",
+    "cn": [
+        {
+            "type": "Ext.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bind": [
+                    "{Hours.start}"
+                ],
+                "label": "Start",
+                "placeholder": "dd/mm/yy hh:mm"
+            },
+            "configAlternates": {
+                "label": "string",
+                "bind": "object",
+                "placeholder": "string"
+            },
+            "name": "MyTextField",
+            "designerId": "c724aff8-e5f5-4dea-b3fb-ffd8b510f28f"
+        },
+        {
+            "type": "Ext.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "label": "Stop",
+                "placeholder": "dd/mm/yy hh:mm"
+            },
+            "configAlternates": {
+                "label": "string",
+                "placeholder": "string"
+            },
+            "name": "MyTextField1",
+            "designerId": "c514807f-7164-4df9-997f-86b2310deab7"
+        },
+        {
+            "type": "Ext.field.Number",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "label": "Hours",
+                "placeholder": "hh:mm"
+            },
+            "configAlternates": {
+                "label": "string",
+                "placeholder": "string"
+            },
+            "name": "MyNumberField",
+            "designerId": "73dbae70-d72f-4e06-8b52-97d57768f853"
+        },
+        {
+            "type": "Ext.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "label": "Comment"
+            },
+            "configAlternates": {
+                "label": "string"
+            },
+            "name": "MyTextField2",
+            "designerId": "cd5bcf27-c6fe-4962-a9d2-0a71370c13d8"
+        },
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom"
+            },
+            "configAlternates": {
+                "docked": "string"
+            },
+            "name": "MyToolbar",
+            "designerId": "a4013b1c-5830-471d-a3a9-0c330054c6e2",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-check",
+                        "text": "Submit"
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "text": "string"
+                    },
+                    "name": "MyButton",
+                    "designerId": "150e80fd-d923-4233-a416-0e86e2f0be2f",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "submitUpdate",
+                                "implHandler": [
+                                    "var view = this.getView(),",
+                                    "     record = view.getRecord();",
+                                    " view.destroy();",
+                                    " record.commit();"
+                                ],
+                                "name": "tap",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "submitUpdate",
+                            "designerId": "8a6cd261-32bf-4d18-8cc3-3c7ca66fe1bf"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-close",
+                        "text": "Cancel"
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "text": "string"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "9ca9ddc0-4886-4ea1-bb85-e205b796cd25",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "cancelUpdate",
+                                "implHandler": [
+                                    "var view = this.getView(),",
+                                    "    record = view.getRecord();",
+                                    "view.destroy();",
+                                    "record.reject();"
+                                ],
+                                "name": "tap",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "cancelUpdate",
+                            "designerId": "f828800f-dda4-4afa-a6e1-2b49db41ba04"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

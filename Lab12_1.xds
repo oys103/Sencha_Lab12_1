@@ -1,0 +1,65 @@
+{
+    "name": "Lab12_1",
+    "settings": {
+        "cmd": {
+            "license": "commercial",
+            "cmdVersion": "6.7.0.63",
+            "frameworkVersion": "6.7.0.212"
+        },
+        "urlPrefixTemplate": "http://localhost:{port}/{path}",
+        "urlPrefix": "http://localhost/",
+        "canvasControls": {
+            "viewportSize": {
+                "name": "iPhone",
+                "builtIn": true,
+                "height": 480,
+                "width": 320
+            },
+            "viewportOrientation": "portrait"
+        },
+        "exportPath": "",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "lastNativeBuildSelection": {
+            "value": "nativeBuild",
+            "display": "Build",
+            "buildPlatform": false
+        }
+    },
+    "xdsVersion": "4.2.5",
+    "xdsBuild": 420,
+    "schemaVersion": 1,
+    "upgradeVersion": 310000000001,
+    "framework": "modern67",
+    "viewOrderMap": {
+        "view": [
+            "85a8bb26-c02a-47ff-8985-6af9716cbb5f",
+            "ea455ca5-12eb-48b4-a3aa-f6afddeab927",
+            "e58928c7-9896-4656-8234-304319a32cb8",
+            "75ef0948-1838-43c6-a1d2-e7682ce4ddfb",
+            "ddab8727-23e7-474b-89e1-e7326c6a8a5e",
+            "54b9839a-27bc-48a2-a6a1-cbe39fb97844"
+        ],
+        "store": [
+            "18d66c76-2aff-4855-952a-422257767191"
+        ],
+        "controller": [],
+        "model": [
+            "f2363187-09c7-4444-8ba1-55d4f2fda85f"
+        ],
+        "resource": [
+            "51ef3065-00a3-4c30-b4f2-49d8e538568e",
+            "2674c4cd-153d-4007-8fed-6998d2a1f598",
+            "7385d6ac-c510-4262-926c-d3163c79c55a",
+            "13d33b44-f54d-4265-a95d-91293a4b5cb8"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

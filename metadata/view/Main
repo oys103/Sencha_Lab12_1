@@ -1,0 +1,439 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "main",
+        "designer|userClassName": "Main",
+        "tabBarPosition": "bottom"
+    },
+    "configAlternates": {
+        "designer|initialView": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "tabBarPosition": "string"
+    },
+    "name": "MyTabPanel",
+    "designerId": "85a8bb26-c02a-47ff-8985-6af9716cbb5f",
+    "viewControllerInstanceId": "e58928c7-9896-4656-8234-304319a32cb8",
+    "viewModelInstanceId": "ea455ca5-12eb-48b4-a3aa-f6afddeab927",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "iconAlign": "top",
+                "iconCls": "x-fa fa-calendar-o",
+                "title": "Day"
+            },
+            "configAlternates": {
+                "iconAlign": "string",
+                "iconCls": "string",
+                "title": "string"
+            },
+            "name": "MyContainer",
+            "designerId": "14be2bdd-9ac8-4619-bb25-14c0a79d382b",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "iconAlign",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.TitleBar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "top"
+                    },
+                    "configAlternates": {
+                        "docked": "string"
+                    },
+                    "name": "MyTitleBar",
+                    "designerId": "9c48aeda-b38d-4c70-bfd0-2ddcec6e3b65",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "border": true,
+                                "padding": 10,
+                                "text": "+"
+                            },
+                            "configAlternates": {
+                                "border": "boolean",
+                                "padding": "auto",
+                                "text": "string"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "46fa1784-2c9c-47c9-9aa6-aaf458efc1ef",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onAddHoursButtonTap",
+                                        "implHandler": [
+                                            "var panel = Ext.create({",
+                                            "                                    xtype: 'registerupdateform',",
+                                            "                                    centered: true,",
+                                            "                                    fullscreen: true,",
+                                            "                                    modal: true",
+                                            "                                });",
+                                            "                                panel.show();"
+                                        ],
+                                        "name": "tap",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onAddHoursButtonTap",
+                                    "designerId": "be5f0494-04e3-4f04-b558-0e58d480bc53"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "padding": 10,
+                                "text": "<"
+                            },
+                            "configAlternates": {
+                                "padding": "auto",
+                                "text": "string"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "b9fb71e4-6137-4763-b642-e07a97e4b4e4",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onSubtractDayTap",
+                                        "implHandler": [
+                                            "var label = Ext.getCmp('dateLabel');",
+                                            "var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, -1);",
+                                            "label.setHtml(Ext.Date.format(date, 'Y-m-d'));"
+                                        ],
+                                        "name": "tap",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onSubtractDayTap",
+                                    "designerId": "4d60e58e-cc6f-43ad-b1fa-ca30c5481d95"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "html": "2019-05-12",
+                                "id": "dateLabel"
+                            },
+                            "configAlternates": {
+                                "html": "string",
+                                "id": "string"
+                            },
+                            "name": "MyLabel",
+                            "designerId": "3000028f-2ed4-4696-a1d4-a85bbb16d1eb"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "padding": 10,
+                                "text": ">"
+                            },
+                            "configAlternates": {
+                                "padding": "auto",
+                                "text": "string"
+                            },
+                            "name": "MyButton4",
+                            "designerId": "977a3159-faff-4ebd-9f81-5d0dd10ad1b0",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onAddDayTap",
+                                        "implHandler": [
+                                            "        var label = Ext.getCmp('dateLabel');",
+                                            "        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, 1);",
+                                            "        label.setHtml(Ext.Date.format(date, 'Y-m-d'));"
+                                        ],
+                                        "name": "tap",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onAddDayTap",
+                                    "designerId": "442f7ae8-808b-442d-a393-5b3f8eb5b3b4"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.Grid",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": "100%",
+                        "store": "Hours",
+                        "width": "100%"
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "width": "auto",
+                        "store": "store",
+                        "title": "string"
+                    },
+                    "name": "MyGrid",
+                    "designerId": "2315e032-11d2-46df-8372-f528041972e1",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "start",
+                                "docked": null,
+                                "text": "Start",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "docked": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyColumn",
+                            "designerId": "d428d2db-4a45-4cd8-a704-f38ab9fdd770"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "stop",
+                                "docked": null,
+                                "text": "Stop",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "docked": "string",
+                                "text": "string",
+                                "width": "auto",
+                                "dataIndex": "datafield"
+                            },
+                            "name": "MyColumn1",
+                            "designerId": "36e282f5-357b-44dc-9396-8e6a8e95a709"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "duration",
+                                "docked": null,
+                                "text": "Hours",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "docked": "string",
+                                "text": "string",
+                                "width": "auto",
+                                "dataIndex": "datafield"
+                            },
+                            "name": "MyNumberColumn",
+                            "designerId": "2a7fd3f4-fc49-4034-a93d-615cc54ec04c"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "comment",
+                                "docked": null,
+                                "minWidth": 80,
+                                "text": "Comment",
+                                "width": ""
+                            },
+                            "configAlternates": {
+                                "docked": "string",
+                                "minWidth": "auto",
+                                "text": "string",
+                                "width": "auto",
+                                "dataIndex": "datafield"
+                            },
+                            "name": "MyColumn2",
+                            "designerId": "0c827c19-31b0-459d-b233-493ddf9edbc9"
+                        },
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "sender",
+                                    "record"
+                                ],
+                                "fn": "onItemSelected",
+                                "implHandler": [
+                                    "alert(record);",
+                                    "Ext.create({",
+                                    "        xtype: 'registerupdateform',",
+                                    "        centered: true,",
+                                    "        fullscreen: true,",
+                                    "        modal: true,",
+                                    "        record: record // Sender record som skal fylles inn i FormPanel",
+                                    "    }).show();",
+                                    "    sender.deselect(record);"
+                                ],
+                                "name": "itemtap",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onItemSelected",
+                            "designerId": "065ade6e-b664-4dec-8796-1ef7c46630bb"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "iconAlign": "top",
+                "iconCls": "x-fa fa-list",
+                "title": "Week"
+            },
+            "configAlternates": {
+                "iconAlign": "string",
+                "iconCls": "string",
+                "title": "string"
+            },
+            "name": "MyContainer1",
+            "designerId": "cd68f6d1-ea9c-449a-904f-65e54a6970bf",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "iconAlign",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "iconAlign": "top",
+                "iconCls": "x-fa fa-calendar",
+                "title": "Month"
+            },
+            "configAlternates": {
+                "iconAlign": "string",
+                "iconCls": "string",
+                "title": "string"
+            },
+            "name": "MyContainer2",
+            "designerId": "7976490d-453f-4b28-88d5-4406faa1306c",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "iconAlign",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
+}
