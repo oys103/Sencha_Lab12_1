@@ -356,9 +356,9 @@
                                     "sender",
                                     "record"
                                 ],
-                                "fn": "onItemSelected",
+                                "fn": "onPopupForm",
                                 "implHandler": [
-                                    "alert(record);",
+                                    "//alert(record);",
                                     "Ext.create({",
                                     "        xtype: 'registerupdateform',",
                                     "        centered: true,",
@@ -379,7 +379,7 @@
                                 "name": "string",
                                 "scope": "string"
                             },
-                            "name": "onItemSelected",
+                            "name": "onPopupForm",
                             "designerId": "065ade6e-b664-4dec-8796-1ef7c46630bb"
                         }
                     ]
@@ -413,6 +413,22 @@
                 }
             ],
             "cn": [
+                {
+                    "type": "Ext.TitleBar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "top"
+                    },
+                    "configAlternates": {
+                        "docked": "string"
+                    },
+                    "name": "MyTitleBar1",
+                    "designerId": "30c66e43-bcd0-4654-98f9-a40dfb67526c"
+                },
                 {
                     "type": "Ext.grid.Grid",
                     "reference": {
@@ -515,7 +531,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "html": "<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p><p>BTW, Sencha SUXXXX!!!</p>",
+                "html": "<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p>",
                 "iconAlign": "top",
                 "iconCls": "x-fa fa-calendar",
                 "title": "Month"

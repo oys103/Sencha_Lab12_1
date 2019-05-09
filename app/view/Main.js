@@ -111,7 +111,7 @@ Ext.define('HoursLogger.view.Main', {
                         }
                     ],
                     listeners: {
-                        itemtap: 'onItemSelected'
+                        itemtap: 'onPopupForm'
                     }
                 }
             ]
@@ -122,6 +122,10 @@ Ext.define('HoursLogger.view.Main', {
             title: 'Week',
             iconCls: 'x-fa fa-list',
             items: [
+                {
+                    xtype: 'titlebar',
+                    docked: 'top'
+                },
                 {
                     xtype: 'grid',
                     height: '100%',
@@ -156,7 +160,7 @@ Ext.define('HoursLogger.view.Main', {
             iconAlign: 'top',
             title: 'Month',
             iconCls: 'x-fa fa-calendar',
-            html: '<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p><p>BTW, Sencha SUXXXX!!!</p>'
+            html: '<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p>'
         }
     ]
 

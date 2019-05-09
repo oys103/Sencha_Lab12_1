@@ -44,16 +44,19 @@ Ext.define('HoursLogger.view.RegisterUpdateForm', {
         },
         {
             xtype: 'textfield',
+            bind: '{Hours.stop}',
             label: 'Stop',
             placeholder: 'dd/mm/yy hh:mm'
         },
         {
             xtype: 'numberfield',
+            bind: '{Hours.duration}',
             label: 'Hours',
             placeholder: 'hh:mm'
         },
         {
             xtype: 'textfield',
+            bind: '{Hours.comment}',
             label: 'Comment'
         },
         {

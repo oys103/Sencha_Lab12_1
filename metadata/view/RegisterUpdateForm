@@ -58,12 +58,16 @@
             },
             "codeClass": null,
             "userConfig": {
+                "bind": [
+                    "{Hours.stop}"
+                ],
                 "label": "Stop",
                 "placeholder": "dd/mm/yy hh:mm"
             },
             "configAlternates": {
                 "label": "string",
-                "placeholder": "string"
+                "placeholder": "string",
+                "bind": "object"
             },
             "name": "MyTextField1",
             "designerId": "c514807f-7164-4df9-997f-86b2310deab7"
@@ -76,12 +80,16 @@
             },
             "codeClass": null,
             "userConfig": {
+                "bind": [
+                    "{Hours.duration}"
+                ],
                 "label": "Hours",
                 "placeholder": "hh:mm"
             },
             "configAlternates": {
                 "label": "string",
-                "placeholder": "string"
+                "placeholder": "string",
+                "bind": "object"
             },
             "name": "MyNumberField",
             "designerId": "73dbae70-d72f-4e06-8b52-97d57768f853"
@@ -94,10 +102,14 @@
             },
             "codeClass": null,
             "userConfig": {
+                "bind": [
+                    "{Hours.comment}"
+                ],
                 "label": "Comment"
             },
             "configAlternates": {
-                "label": "string"
+                "label": "string",
+                "bind": "object"
             },
             "name": "MyTextField2",
             "designerId": "cd5bcf27-c6fe-4962-a9d2-0a71370c13d8"

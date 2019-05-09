@@ -39,8 +39,8 @@ Ext.define('HoursLogger.view.MainViewController', {
         label.setHtml(Ext.Date.format(date, 'Y-m-d'));
     },
 
-    onItemSelected: function(sender, record) {
-        alert(record);
+    onPopupForm: function(sender, record) {
+        //alert(record);
         Ext.create({
             xtype: 'registerupdateform',
             centered: true,
