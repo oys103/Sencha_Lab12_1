@@ -23,7 +23,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "calculateSum",
+                "fn": "calculateDaySum",
                 "implHandler": [
                     "        var label = Ext.getCmp('sumLabel');",
                     "        var store = Ext.getStore('Hours');",
@@ -39,8 +39,35 @@
                 "fn": "string",
                 "implHandler": "code"
             },
-            "name": "calculateSum",
+            "name": "calculateDaySum",
             "designerId": "4f69470f-97bc-43fc-8b9d-8e0578dd0803"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "calculateWeekSum",
+                "implHandler": [
+                    "        var label = Ext.getCmp('weekSumLabel');",
+                    "        var store = Ext.getStore('Hours');",
+                    "        var sum = 0;",
+                    "        for (var i = 0; i < store.getCount(); i++){",
+                    "            sum += store.data.items[i].data.duration;",
+                    "        }",
+                    "        label.setHtml('Sum: ' + sum + ' hour(s)');",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "calculateWeekSum",
+            "designerId": "23051d8a-2773-4d31-a924-45646b7e2c11"
         }
     ]
 }
