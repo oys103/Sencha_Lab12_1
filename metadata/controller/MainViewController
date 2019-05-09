@@ -1,0 +1,47 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mainviewcontroller",
+        "designer|userClassName": "MainViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "designerId": "1a72658f-ce9d-4153-bf3f-e44aef374083",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "label#dateLabel",
+                "designer|params": [
+                    "component",
+                    "newData",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.Label",
+                "fn": "onDateLabelUpdatedata",
+                "name": "updatedata"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "name": "string"
+            },
+            "name": "onDateLabelUpdatedata",
+            "designerId": "0b234fa1-c2b8-4a64-9de3-d33bd5683577"
+        }
+    ]
+}

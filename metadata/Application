@@ -6,6 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
+        "controllers": [
+            "MainViewController"
+        ],
         "models": [
             "Hours"
         ],
@@ -22,7 +25,8 @@
         "models": "typedarray",
         "name": "string",
         "stores": "typedarray",
-        "views": "typedarray"
+        "views": "typedarray",
+        "controllers": "typedarray"
     },
     "name": "Application",
     "designerId": "application"

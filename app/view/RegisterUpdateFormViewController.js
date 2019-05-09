@@ -21,6 +21,7 @@ Ext.define('HoursLogger.view.RegisterUpdateFormViewController', {
         var view = this.getView(),
             record = view.getRecord();
         view.destroy();
+        console.log(record);
         record.commit();
     },
 

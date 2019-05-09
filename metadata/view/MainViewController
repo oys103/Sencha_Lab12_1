@@ -13,5 +13,34 @@
         "designer|userAlias": "string",
         "designer|userClassName": "string"
     },
-    "designerId": "e58928c7-9896-4656-8234-304319a32cb8"
+    "designerId": "e58928c7-9896-4656-8234-304319a32cb8",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "calculateSum",
+                "implHandler": [
+                    "        var label = Ext.getCmp('sumLabel');",
+                    "        var store = Ext.getStore('Hours');",
+                    "        var sum = 0;",
+                    "        for (var i = 0; i < store.getCount(); i++){",
+                    "            sum += store.data.items[i].data.duration;",
+                    "        }",
+                    "        label.setHtml('Sum: ' + sum + ' hour(s)');",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "calculateSum",
+            "designerId": "4f69470f-97bc-43fc-8b9d-8e0578dd0803"
+        }
+    ]
 }

@@ -30,8 +30,8 @@ Ext.define('HoursLogger.store.Hours', {
             model: 'HoursLogger.model.Hours',
             data: [
                 {
-                    start: '2019.05.09 11:15',
-                    stop: '2019.05.09 11:30',
+                    start: '2019-05-09 11:15',
+                    stop: '2019-05-09 11:30',
                     duration: 0.25,
                     comment: 'qwery'
                 },
@@ -42,9 +42,9 @@ Ext.define('HoursLogger.store.Hours', {
                     comment: 'necessitatibus'
                 },
                 {
-                    start: 'impedit',
-                    stop: 'atque',
-                    duration: 445.58,
+                    start: '2019-05-05 15:15',
+                    stop: '2019-05-05 18:00',
+                    duration: 2.75,
                     comment: 'ut'
                 },
                 {
@@ -66,9 +66,9 @@ Ext.define('HoursLogger.store.Hours', {
                     comment: 'explicabo'
                 },
                 {
-                    start: 'sapiente',
-                    stop: 'occaecati',
-                    duration: 85.16,
+                    start: '2019-05-09 15:15',
+                    stop: '2019-05-09 16:30',
+                    duration: 1.25,
                     comment: 'sit'
                 },
                 {

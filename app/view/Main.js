@@ -24,8 +24,7 @@ Ext.define('HoursLogger.view.Main', {
         'Ext.Button',
         'Ext.Label',
         'Ext.grid.Grid',
-        'Ext.grid.column.Number',
-        'Ext.grid.column.Date'
+        'Ext.grid.column.Number'
     ],
 
     controller: 'main',
@@ -65,7 +64,10 @@ Ext.define('HoursLogger.view.Main', {
                         {
                             xtype: 'label',
                             id: 'dateLabel',
-                            html: '2019-05-12'
+                            html: '',
+                            listeners: {
+                                initialize: 'onDateLabelInitialize'
+                            }
                         },
                         {
                             xtype: 'button',
@@ -73,6 +75,15 @@ Ext.define('HoursLogger.view.Main', {
                             text: '>',
                             listeners: {
                                 tap: 'onAddDayTap'
+                            }
+                        },
+                        {
+                            xtype: 'label',
+                            align: 'right',
+                            id: 'sumLabel',
+                            html: 'Sum: 0 hours',
+                            listeners: {
+                                initialize: 'onLabelInitialize'
                             }
                         }
                     ]
@@ -111,7 +122,8 @@ Ext.define('HoursLogger.view.Main', {
                         }
                     ],
                     listeners: {
-                        itemtap: 'onPopupForm'
+                        itemtap: 'onItemSelected',
+                        initialize: 'onGridInitialize'
                     }
                 }
             ]
@@ -120,11 +132,63 @@ Ext.define('HoursLogger.view.Main', {
             xtype: 'container',
             iconAlign: 'top',
             title: 'Week',
-            iconCls: 'x-fa fa-list',
+            iconCls: 'x-fa fa-calendar-o',
             items: [
                 {
                     xtype: 'titlebar',
-                    docked: 'top'
+                    docked: 'top',
+                    items: [
+                        {
+                            xtype: 'button',
+                            border: true,
+                            padding: 10,
+                            text: '+',
+                            listeners: {
+                                tap: 'onAddHoursButtonTap1'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            padding: 10,
+                            text: '<',
+                            listeners: {
+                                tap: 'onSubtractWeekTap'
+                            }
+                        },
+                        {
+                            xtype: 'label',
+                            id: 'firstDayOfWeekLabel',
+                            html: ''
+                        },
+                        {
+                            xtype: 'label',
+                            html: '&ensp; - &ensp;  '
+                        },
+                        {
+                            xtype: 'label',
+                            id: 'lastDayOfWeekLabel',
+                            listeners: {
+                                initialize: 'onWeekLabelInitialize'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            padding: 10,
+                            text: '>',
+                            listeners: {
+                                tap: 'onAddWeekTap'
+                            }
+                        },
+                        {
+                            xtype: 'label',
+                            align: 'right',
+                            id: 'sumLabel1',
+                            html: 'Sum: 0 hours',
+                            listeners: {
+                                initialize: 'onLabelInitialize1'
+                            }
+                        }
+                    ]
                 },
                 {
                     xtype: 'grid',
@@ -135,23 +199,33 @@ Ext.define('HoursLogger.view.Main', {
                     columns: [
                         {
                             xtype: 'gridcolumn',
-                            width: 70,
+                            width: 80,
                             dataIndex: 'start',
-                            text: 'Day'
+                            text: 'Start'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            width: 80,
+                            dataIndex: 'stop',
+                            text: 'Stop'
                         },
                         {
                             xtype: 'numbercolumn',
-                            width: 89,
+                            width: 80,
                             dataIndex: 'duration',
-                            text: 'Number'
+                            text: 'Hours'
                         },
                         {
-                            xtype: 'datecolumn',
-                            width: 89,
-                            dataIndex: 'date',
-                            text: 'Date'
+                            xtype: 'gridcolumn',
+                            width: '',
+                            minWidth: 80,
+                            dataIndex: 'comment',
+                            text: 'Comment'
                         }
-                    ]
+                    ],
+                    listeners: {
+                        itemtap: 'onItemSelected1'
+                    }
                 }
             ]
         },

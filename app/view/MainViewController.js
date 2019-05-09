@@ -17,6 +17,17 @@ Ext.define('HoursLogger.view.MainViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
 
+    calculateSum: function() {
+                var label = Ext.getCmp('sumLabel');
+                var store = Ext.getStore('Hours');
+                var sum = 0;
+                for (var i = 0; i < store.getCount(); i++){
+                    sum += store.data.items[i].data.duration;
+                }
+                label.setHtml('Sum: ' + sum + ' hour(s)');
+
+    },
+
     onAddHoursButtonTap: function(button, e, eOpts) {
         var panel = Ext.create({
             xtype: 'registerupdateform',
@@ -30,17 +41,35 @@ Ext.define('HoursLogger.view.MainViewController', {
     onSubtractDayTap: function(button, e, eOpts) {
         var label = Ext.getCmp('dateLabel');
         var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, -1);
-        label.setHtml(Ext.Date.format(date, 'Y-m-d'));
+        var dateString = Ext.Date.format(date, 'Y-m-d');
+        label.setHtml(dateString);
+        Ext.getStore('Hours').filter('start', dateString);
+        this.calculateSum();
+    },
+
+    onDateLabelInitialize: function(component, eOpts) {
+        var currentDate = Ext.Date.format(new Date(), 'Y-m-d');
+        component.setHtml(currentDate);
+        Ext.getStore('Hours').filter('start', currentDate);
     },
 
     onAddDayTap: function(button, e, eOpts) {
         var label = Ext.getCmp('dateLabel');
         var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, 1);
-        label.setHtml(Ext.Date.format(date, 'Y-m-d'));
+        var dateString = Ext.Date.format(date, 'Y-m-d');
+        label.setHtml(dateString);
+        Ext.getStore('Hours').filter('start', dateString);
+        this.calculateSum();
+
     },
 
-    onPopupForm: function(sender, record) {
-        //alert(record);
+    onLabelInitialize: function(component, eOpts) {
+        this.calculateSum();
+    },
+
+    onItemSelected: function(sender, record) {
+        console.log(record);
+        //console.log(sender);
         Ext.create({
             xtype: 'registerupdateform',
             centered: true,
@@ -49,7 +78,81 @@ Ext.define('HoursLogger.view.MainViewController', {
             title: 'Edit',
             record: record // Sender record som skal fylles inn i FormPanel
         }).show();
-        sender.deselect(record);
+        //sender.deselect(record);
+    },
+
+    onGridInitialize: function(component, eOpts) {
+
+    },
+
+    onAddHoursButtonTap1: function(button, e, eOpts) {
+        var panel = Ext.create({
+            xtype: 'registerupdateform',
+            centered: true,
+            fullscreen: true,
+            modal: true
+        });
+        panel.show();
+    },
+
+    onSubtractWeekTap: function(button, e, eOpts) {
+        var firstLabel = Ext.getCmp('firstDayOfWeekLabel');
+        var lastLabel = Ext.getCmp('lastDayOfWeekLabel');
+        var firstDay = Ext.Date.format(Ext.Date.add(new Date(firstLabel.getHtml()), Ext.Date.DAY, -7), 'Y-m-d');
+        var lastDay = Ext.Date.format(Ext.Date.add(new Date(lastLabel.getHtml()), Ext.Date.DAY, -7), 'Y-m-d');
+        firstLabel.setHtml(firstDay);
+        lastLabel.setHtml(lastDay);
+        Ext.getStore('Hours').filter('start', firstDay); //TODO filtrering
+        this.calculateSum();
+
+    },
+
+    onWeekLabelInitialize: function(component, eOpts) {
+        var day = new Date().getDay();
+        if (day !== 0){
+            var sunday = Ext.Date.add(new Date(), Ext.Date.DAY, -day);
+        }
+        else {
+            var sunday = new Date();
+        }
+        var firstDayOfWeek = Ext.Date.format(sunday, 'Y-m-d');
+        var lastDayOfWeek = Ext.Date.format(Ext.Date.add(sunday, Ext.Date.DAY, +6), 'Y-m-d');
+        var firstDay = Ext.getCmp('firstDayOfWeekLabel');
+
+        firstDay.setHtml(firstDayOfWeek);
+        component.setHtml(lastDayOfWeek);
+        Ext.getStore('Hours').filter('start', firstDayOfWeek); //TODO fikse filtrering
+
+    },
+
+    onAddWeekTap: function(button, e, eOpts) {
+        var firstLabel = Ext.getCmp('firstDayOfWeekLabel');
+        var lastLabel = Ext.getCmp('lastDayOfWeekLabel');
+        var firstDay = Ext.Date.format(Ext.Date.add(new Date(firstLabel.getHtml()), Ext.Date.DAY, 7), 'Y-m-d');
+        var lastDay = Ext.Date.format(Ext.Date.add(new Date(lastLabel.getHtml()), Ext.Date.DAY, 7), 'Y-m-d');
+        firstLabel.setHtml(firstDay);
+        lastLabel.setHtml(lastDay);
+        Ext.getStore('Hours').filter('start', firstDay); //TODO filtrering
+        this.calculateSum();
+
+    },
+
+    onLabelInitialize1: function(component, eOpts) {
+        this.calculateSum();
+    },
+
+    onItemSelected1: function(sender, record) {
+        console.log(record);
+        //console.log(sender);
+        Ext.create({
+            xtype: 'registerupdateform',
+            centered: true,
+            fullscreen: true,
+            modal: true,
+            title: 'Edit',
+            record: record // Sender record som skal fylles inn i FormPanel
+        }).show();
+        //sender.deselect(record);
     }
 
 });

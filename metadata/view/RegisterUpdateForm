@@ -36,15 +36,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "bind": [
-                    "{Hours.start}"
-                ],
                 "label": "Start",
                 "placeholder": "dd/mm/yy hh:mm"
             },
             "configAlternates": {
                 "label": "string",
-                "bind": "object",
                 "placeholder": "string"
             },
             "name": "MyTextField",
@@ -161,6 +157,7 @@
                                     "var view = this.getView(),",
                                     "    record = view.getRecord();",
                                     "view.destroy();",
+                                    "console.log(record);",
                                     "record.commit();"
                                 ],
                                 "name": "tap",
