@@ -46,6 +46,7 @@ Ext.define('HoursLogger.view.MainViewController', {
             centered: true,
             fullscreen: true,
             modal: true,
+            title: 'Edit',
             record: record // Sender record som skal fylles inn i FormPanel
         }).show();
         sender.deselect(record);
