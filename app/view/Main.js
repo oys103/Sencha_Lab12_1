@@ -24,7 +24,9 @@ Ext.define('HoursLogger.view.Main', {
         'Ext.Button',
         'Ext.Label',
         'Ext.grid.Grid',
-        'Ext.grid.column.Number'
+        'Ext.grid.column.Number',
+        'Ext.grid.column.Date',
+        'Ext.grid.column.Boolean'
     ],
 
     controller: 'main',
@@ -79,6 +81,7 @@ Ext.define('HoursLogger.view.Main', {
                 {
                     xtype: 'grid',
                     height: '100%',
+                    name: 'DayGrid',
                     width: '100%',
                     store: 'Hours',
                     columns: [
@@ -118,13 +121,48 @@ Ext.define('HoursLogger.view.Main', {
             xtype: 'container',
             iconAlign: 'top',
             title: 'Week',
-            iconCls: 'x-fa fa-list'
+            iconCls: 'x-fa fa-list',
+            items: [
+                {
+                    xtype: 'grid',
+                    height: '100%',
+                    name: 'WeekGrid',
+                    width: '100%',
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            width: 70,
+                            dataIndex: 'string',
+                            text: 'String'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            width: 89,
+                            dataIndex: 'number',
+                            text: 'Number'
+                        },
+                        {
+                            xtype: 'datecolumn',
+                            width: 89,
+                            dataIndex: 'date',
+                            text: 'Date'
+                        },
+                        {
+                            xtype: 'booleancolumn',
+                            width: 70,
+                            dataIndex: 'bool',
+                            text: 'Boolean'
+                        }
+                    ]
+                }
+            ]
         },
         {
             xtype: 'container',
             iconAlign: 'top',
             title: 'Month',
-            iconCls: 'x-fa fa-calendar'
+            iconCls: 'x-fa fa-calendar',
+            html: '<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p>'
         }
     ]
 
