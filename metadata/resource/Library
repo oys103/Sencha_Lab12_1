@@ -9,8 +9,7 @@
         "basePath": "ext/",
         "designer|userClassName": "Library",
         "libraryRequires": [
-            "font-awesome",
-            "calendar"
+            "font-awesome"
         ],
         "theme": "MyTritonTheme"
     },
