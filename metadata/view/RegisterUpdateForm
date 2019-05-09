@@ -147,9 +147,9 @@
                                 "fn": "submitUpdate",
                                 "implHandler": [
                                     "var view = this.getView(),",
-                                    "     record = view.getRecord();",
-                                    " view.destroy();",
-                                    " record.commit();"
+                                    "    record = view.getRecord();",
+                                    "view.destroy();",
+                                    "record.commit();"
                                 ],
                                 "name": "tap",
                                 "scope": "me"

@@ -237,7 +237,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": "DayGrid",
                         "height": "100%",
+                        "name": "DayGrid",
                         "store": "Hours",
                         "width": "100%"
                     },
@@ -245,7 +247,9 @@
                         "height": "auto",
                         "width": "auto",
                         "store": "store",
-                        "title": "string"
+                        "title": "string",
+                        "designer|displayName": "string",
+                        "name": "string"
                     },
                     "name": "MyGrid",
                     "designerId": "2315e032-11d2-46df-8372-f528041972e1",
@@ -360,7 +364,7 @@
                                     "        centered: true,",
                                     "        fullscreen: true,",
                                     "        modal: true,",
-                                    "    title: 'Edit',",
+                                    "        title: 'Edit',",
                                     "        record: record // Sender record som skal fylles inn i FormPanel",
                                     "    }).show();",
                                     "    sender.deselect(record);"
@@ -407,6 +411,120 @@
                     "name": "iconAlign",
                     "type": "string"
                 }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.grid.Grid",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "WeekGrid",
+                        "height": "100%",
+                        "name": "WeekGrid",
+                        "width": "100%"
+                    },
+                    "configAlternates": {
+                        "designer|displayName": "string",
+                        "height": "auto",
+                        "name": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyGrid1",
+                    "designerId": "b75764aa-9ccd-4002-bfe2-c0d1cd60d9fd",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "string",
+                                "docked": null,
+                                "text": "String",
+                                "width": 70
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "docked": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyColumn3",
+                            "designerId": "199c6fce-d4ba-4694-811c-257ce1882faf"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "number",
+                                "docked": null,
+                                "text": "Number",
+                                "width": 89
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "docked": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyNumberColumn1",
+                            "designerId": "4ad430a2-f6ed-418e-beff-b50d2345892e"
+                        },
+                        {
+                            "type": "Ext.grid.column.Date",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "date",
+                                "docked": null,
+                                "text": "Date",
+                                "width": 89
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "docked": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyDateColumn",
+                            "designerId": "25ab25ed-2acb-42ac-942d-5ae8f4af077c"
+                        },
+                        {
+                            "type": "Ext.grid.column.Boolean",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "bool",
+                                "docked": null,
+                                "text": "Boolean",
+                                "width": 70
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "docked": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyBooleanColumn",
+                            "designerId": "c6d7308b-ceba-4049-a85d-52e3599cbc36"
+                        }
+                    ]
+                }
             ]
         },
         {
@@ -417,6 +535,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "html": "<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p>",
                 "iconAlign": "top",
                 "iconCls": "x-fa fa-calendar",
                 "title": "Month"
@@ -424,7 +543,8 @@
             "configAlternates": {
                 "iconAlign": "string",
                 "iconCls": "string",
-                "title": "string"
+                "title": "string",
+                "html": "string"
             },
             "name": "MyContainer2",
             "designerId": "7976490d-453f-4b28-88d5-4406faa1306c",
