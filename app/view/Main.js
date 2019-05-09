@@ -83,7 +83,7 @@ Ext.define('HoursLogger.view.Main', {
                             id: 'sumLabel',
                             html: 'Sum: 0 hours',
                             listeners: {
-                                initialize: 'onLabelInitialize'
+                                initialize: 'onDaySumLabelInitialize'
                             }
                         }
                     ]
@@ -182,10 +182,10 @@ Ext.define('HoursLogger.view.Main', {
                         {
                             xtype: 'label',
                             align: 'right',
-                            id: 'sumLabel1',
+                            id: 'weekSumLabel',
                             html: 'Sum: 0 hours',
                             listeners: {
-                                initialize: 'onLabelInitialize1'
+                                initialize: 'onWeekSumLabelInitialize'
                             }
                         }
                     ]

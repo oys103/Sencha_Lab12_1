@@ -17,8 +17,19 @@ Ext.define('HoursLogger.view.MainViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
 
-    calculateSum: function() {
+    calculateDaySum: function() {
                 var label = Ext.getCmp('sumLabel');
+                var store = Ext.getStore('Hours');
+                var sum = 0;
+                for (var i = 0; i < store.getCount(); i++){
+                    sum += store.data.items[i].data.duration;
+                }
+                label.setHtml('Sum: ' + sum + ' hour(s)');
+
+    },
+
+    calculateWeekSum: function() {
+                var label = Ext.getCmp('weekSumLabel');
                 var store = Ext.getStore('Hours');
                 var sum = 0;
                 for (var i = 0; i < store.getCount(); i++){
@@ -44,7 +55,7 @@ Ext.define('HoursLogger.view.MainViewController', {
         var dateString = Ext.Date.format(date, 'Y-m-d');
         label.setHtml(dateString);
         Ext.getStore('Hours').filter('start', dateString);
-        this.calculateSum();
+        this.calculateDaySum();
     },
 
     onDateLabelInitialize: function(component, eOpts) {
@@ -59,12 +70,12 @@ Ext.define('HoursLogger.view.MainViewController', {
         var dateString = Ext.Date.format(date, 'Y-m-d');
         label.setHtml(dateString);
         Ext.getStore('Hours').filter('start', dateString);
-        this.calculateSum();
+        this.calculateDaySum();
 
     },
 
-    onLabelInitialize: function(component, eOpts) {
-        this.calculateSum();
+    onDaySumLabelInitialize: function(component, eOpts) {
+        this.calculateDaySum();
     },
 
     onItemSelected: function(sender, record) {
@@ -103,7 +114,7 @@ Ext.define('HoursLogger.view.MainViewController', {
         firstLabel.setHtml(firstDay);
         lastLabel.setHtml(lastDay);
         Ext.getStore('Hours').filter('start', firstDay); //TODO filtrering
-        this.calculateSum();
+        this.calculateWeekSum();
 
     },
 
@@ -133,12 +144,12 @@ Ext.define('HoursLogger.view.MainViewController', {
         firstLabel.setHtml(firstDay);
         lastLabel.setHtml(lastDay);
         Ext.getStore('Hours').filter('start', firstDay); //TODO filtrering
-        this.calculateSum();
+        this.calculateWeekSum();
 
     },
 
-    onLabelInitialize1: function(component, eOpts) {
-        this.calculateSum();
+    onWeekSumLabelInitialize: function(component, eOpts) {
+        this.calculateWeekSum();
     },
 
     onItemSelected1: function(sender, record) {

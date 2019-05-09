@@ -150,7 +150,7 @@
                                             "        var dateString = Ext.Date.format(date, 'Y-m-d');",
                                             "        label.setHtml(dateString);",
                                             "        Ext.getStore('Hours').filter('start', dateString);",
-                                            "        this.calculateSum();"
+                                            "        this.calculateDaySum();"
                                         ],
                                         "name": "tap",
                                         "scope": "me"
@@ -245,7 +245,7 @@
                                             "        var dateString = Ext.Date.format(date, 'Y-m-d');",
                                             "        label.setHtml(dateString);",
                                             "        Ext.getStore('Hours').filter('start', dateString);",
-                                            "        this.calculateSum();",
+                                            "        this.calculateDaySum();",
                                             ""
                                         ],
                                         "name": "tap",
@@ -292,9 +292,9 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "onLabelInitialize",
+                                        "fn": "onDaySumLabelInitialize",
                                         "implHandler": [
-                                            "this.calculateSum();"
+                                            "this.calculateDaySum();"
                                         ],
                                         "name": "initialize",
                                         "scope": "me"
@@ -305,7 +305,7 @@
                                         "name": "string",
                                         "scope": "string"
                                     },
-                                    "name": "onLabelInitialize",
+                                    "name": "onDaySumLabelInitialize",
                                     "designerId": "0ac4713d-4059-4f5f-8085-93b41050dd56"
                                 }
                             ]
@@ -620,7 +620,7 @@
                                             "        firstLabel.setHtml(firstDay);",
                                             "        lastLabel.setHtml(lastDay);",
                                             "        Ext.getStore('Hours').filter('start', firstDay); //TODO filtrering",
-                                            "        this.calculateSum();",
+                                            "        this.calculateWeekSum();",
                                             ""
                                         ],
                                         "name": "tap",
@@ -764,7 +764,7 @@
                                             "        firstLabel.setHtml(firstDay);",
                                             "        lastLabel.setHtml(lastDay);",
                                             "        Ext.getStore('Hours').filter('start', firstDay); //TODO filtrering",
-                                            "        this.calculateSum();",
+                                            "        this.calculateWeekSum();",
                                             ""
                                         ],
                                         "name": "tap",
@@ -792,7 +792,7 @@
                                 "align": "right",
                                 "docked": null,
                                 "html": "Sum: 0 hours",
-                                "id": "sumLabel1"
+                                "id": "weekSumLabel"
                             },
                             "configAlternates": {
                                 "align": "string",
@@ -811,9 +811,9 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "onLabelInitialize1",
+                                        "fn": "onWeekSumLabelInitialize",
                                         "implHandler": [
-                                            "this.calculateSum();"
+                                            "this.calculateWeekSum();"
                                         ],
                                         "name": "initialize",
                                         "scope": "me"
@@ -824,7 +824,7 @@
                                         "name": "string",
                                         "scope": "string"
                                     },
-                                    "name": "onLabelInitialize1",
+                                    "name": "onWeekSumLabelInitialize",
                                     "designerId": "ae6679ac-dd02-46b4-ab60-ab2fbd431517"
                                 }
                             ]
