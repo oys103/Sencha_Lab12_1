@@ -162,7 +162,7 @@ Ext.define('HoursLogger.view.Main', {
             iconAlign: 'top',
             title: 'Month',
             iconCls: 'x-fa fa-calendar',
-            html: '<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p>'
+            html: '<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p><p>BTW, Sencha SUXXXX!!!</p>'
         }
     ]
 

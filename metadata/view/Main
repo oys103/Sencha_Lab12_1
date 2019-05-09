@@ -535,7 +535,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "html": "<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p>",
+                "html": "<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p><p>BTW, Sencha SUXXXX!!!</p>",
                 "iconAlign": "top",
                 "iconCls": "x-fa fa-calendar",
                 "title": "Month"

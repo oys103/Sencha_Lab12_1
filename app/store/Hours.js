@@ -30,10 +30,10 @@ Ext.define('HoursLogger.store.Hours', {
             model: 'HoursLogger.model.Hours',
             data: [
                 {
-                    start: 'assumenda',
-                    stop: 'fugit',
-                    duration: 488.01,
-                    comment: 'rerum'
+                    start: '2019.05.09 11:15',
+                    stop: '2019.05.09 11:30',
+                    duration: 0.25,
+                    comment: 'Sencha sux'
                 },
                 {
                     start: 'eum',
