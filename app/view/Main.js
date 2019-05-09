@@ -25,8 +25,7 @@ Ext.define('HoursLogger.view.Main', {
         'Ext.Label',
         'Ext.grid.Grid',
         'Ext.grid.column.Number',
-        'Ext.grid.column.Date',
-        'Ext.grid.column.Boolean'
+        'Ext.grid.column.Date'
     ],
 
     controller: 'main',
@@ -128,17 +127,18 @@ Ext.define('HoursLogger.view.Main', {
                     height: '100%',
                     name: 'WeekGrid',
                     width: '100%',
+                    store: 'Hours',
                     columns: [
                         {
                             xtype: 'gridcolumn',
                             width: 70,
-                            dataIndex: 'string',
-                            text: 'String'
+                            dataIndex: 'start',
+                            text: 'Day'
                         },
                         {
                             xtype: 'numbercolumn',
                             width: 89,
-                            dataIndex: 'number',
+                            dataIndex: 'duration',
                             text: 'Number'
                         },
                         {
@@ -146,12 +146,6 @@ Ext.define('HoursLogger.view.Main', {
                             width: 89,
                             dataIndex: 'date',
                             text: 'Date'
-                        },
-                        {
-                            xtype: 'booleancolumn',
-                            width: 70,
-                            dataIndex: 'bool',
-                            text: 'Boolean'
                         }
                     ]
                 }
