@@ -7,11 +7,15 @@
     "codeClass": null,
     "userConfig": {
         "designer|userAlias": "registerupdateform",
-        "designer|userClassName": "RegisterUpdateFormViewController"
+        "designer|userClassName": "RegisterUpdateFormViewController",
+        "requires": [
+            "HoursLogger.store.Hours"
+        ]
     },
     "configAlternates": {
         "designer|userAlias": "string",
-        "designer|userClassName": "string"
+        "designer|userClassName": "string",
+        "requires": "typedarray"
     },
     "designerId": "54b9839a-27bc-48a2-a6a1-cbe39fb97844"
 }

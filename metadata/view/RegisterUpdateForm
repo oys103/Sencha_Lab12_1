@@ -154,8 +154,9 @@
                             "userConfig": {
                                 "fn": "submitUpdate",
                                 "implHandler": [
-                                    "var view = this.getView(),",
+                                    "var view = this.getView();",
                                     "    record = view.getRecord();",
+                                    "console.log(view);",
                                     "view.destroy();",
                                     "console.log(record);",
                                     "record.commit();"

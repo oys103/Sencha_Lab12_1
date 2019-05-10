@@ -17,9 +17,14 @@ Ext.define('HoursLogger.view.RegisterUpdateFormViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.registerupdateform',
 
+    requires: [
+        'HoursLogger.store.Hours'
+    ],
+
     submitUpdate: function(button, e, eOpts) {
-        var view = this.getView(),
-            record = view.getRecord();
+        var view = this.getView();
+        record = view.getRecord();
+        console.log(view);
         view.destroy();
         console.log(record);
         record.commit();

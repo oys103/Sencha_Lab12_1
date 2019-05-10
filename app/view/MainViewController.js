@@ -78,16 +78,14 @@ Ext.define('HoursLogger.view.MainViewController', {
         this.calculateDaySum();
     },
 
-    onItemSelected: function(sender, record) {
-        console.log(record);
-        //console.log(sender);
+    onPopupForm: function(dataview, selected, eOpts) {
         Ext.create({
             xtype: 'registerupdateform',
             centered: true,
             fullscreen: true,
             modal: true,
             title: 'Edit',
-            record: record // Sender record som skal fylles inn i FormPanel
+            record: selected[0] // Sender record som skal fylles inn i FormPanel
         }).show();
         //sender.deselect(record);
     },
@@ -152,8 +150,8 @@ Ext.define('HoursLogger.view.MainViewController', {
         this.calculateWeekSum();
     },
 
-    onItemSelected1: function(sender, record) {
-        console.log(record);
+    onItemSelected1: function(dataview, selected, eOpts) {
+        console.log(selected[0].data);
         //console.log(sender);
         Ext.create({
             xtype: 'registerupdateform',
@@ -161,9 +159,8 @@ Ext.define('HoursLogger.view.MainViewController', {
             fullscreen: true,
             modal: true,
             title: 'Edit',
-            record: record // Sender record som skal fylles inn i FormPanel
+            record: selected[0].data // Sender record som skal fylles inn i FormPanel
         }).show();
-        //sender.deselect(record);
     }
 
 });

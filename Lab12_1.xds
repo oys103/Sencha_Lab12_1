@@ -7,7 +7,7 @@
             "frameworkVersion": "6.7.0.212"
         },
         "urlPrefixTemplate": "http://localhost:{port}/{path}",
-        "urlPrefix": "http://localhost:57812/",
+        "urlPrefix": "http://localhost:64676/",
         "canvasControls": {
             "viewportSize": {
                 "name": "iPhone 6 Plus",
@@ -55,7 +55,7 @@
             "f2363187-09c7-4444-8ba1-55d4f2fda85f"
         ],
         "resource": [
-            "46973fc1-c3b4-4113-b63a-dd636745fc8f",
+            "0559ccb5-4a01-4cc0-bf1e-2087408e3017",
             "2674c4cd-153d-4007-8fed-6998d2a1f598",
             "7385d6ac-c510-4262-926c-d3163c79c55a",
             "13d33b44-f54d-4265-a95d-91293a4b5cb8"

@@ -122,7 +122,7 @@ Ext.define('HoursLogger.view.Main', {
                         }
                     ],
                     listeners: {
-                        itemtap: 'onItemSelected',
+                        select: 'onPopupForm',
                         initialize: 'onGridInitialize'
                     }
                 }
@@ -224,7 +224,7 @@ Ext.define('HoursLogger.view.Main', {
                         }
                     ],
                     listeners: {
-                        itemtap: 'onItemSelected1'
+                        select: 'onItemSelected1'
                     }
                 }
             ]

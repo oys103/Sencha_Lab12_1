@@ -18,8 +18,7 @@ Ext.define('HoursLogger.store.Hours', {
 
     requires: [
         'HoursLogger.model.Hours',
-        'Ext.data.proxy.Ajax',
-        'Ext.data.reader.Json'
+        'Ext.data.proxy.LocalStorage'
     ],
 
     constructor: function(cfg) {
@@ -211,10 +210,7 @@ Ext.define('HoursLogger.store.Hours', {
                 }
             ],
             proxy: {
-                type: 'ajax',
-                reader: {
-                    type: 'json'
-                }
+                type: 'localstorage'
             }
         }, cfg)]);
     }

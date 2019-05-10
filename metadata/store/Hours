@@ -204,26 +204,14 @@
     "designerId": "18d66c76-2aff-4855-952a-422257767191",
     "cn": [
         {
-            "type": "Ext.data.proxy.Ajax",
+            "type": "Ext.data.proxy.LocalStorage",
             "reference": {
                 "name": "proxy",
                 "type": "object"
             },
             "codeClass": null,
-            "name": "MyAjaxProxy",
-            "designerId": "0b769b8b-dcf3-4f39-970f-bb4e75a3541e",
-            "cn": [
-                {
-                    "type": "Ext.data.reader.Json",
-                    "reference": {
-                        "name": "reader",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "name": "MyJsonReader",
-                    "designerId": "281f7a00-12f3-4391-bc98-5bf5c7309fde"
-                }
-            ]
+            "name": "MyLocalStorageProxy",
+            "designerId": "7b6cf409-d0bc-477b-86c1-4ba610c514db"
         }
     ]
 }

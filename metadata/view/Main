@@ -435,25 +435,19 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|params": [
-                                    "sender",
-                                    "record"
-                                ],
                                 "fn": "onPopupForm",
                                 "implHandler": [
-                                    "console.log(record);",
-                                    "//console.log(sender);",
                                     "Ext.create({",
                                     "        xtype: 'registerupdateform',",
                                     "        centered: true,",
                                     "        fullscreen: true,",
                                     "        modal: true,",
                                     "        title: 'Edit',",
-                                    "        record: record // Sender record som skal fylles inn i FormPanel",
+                                    "        record: selected[0] // Sender record som skal fylles inn i FormPanel",
                                     "    }).show();",
                                     "    //sender.deselect(record);"
                                 ],
-                                "name": "itemtap",
+                                "name": "select",
                                 "scope": "me"
                             },
                             "configAlternates": {
@@ -954,13 +948,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|params": [
-                                    "sender",
-                                    "record"
-                                ],
                                 "fn": "onItemSelected1",
                                 "implHandler": [
-                                    "console.log(record);",
+                                    "console.log(selected[0].data);",
                                     "//console.log(sender);",
                                     "Ext.create({",
                                     "        xtype: 'registerupdateform',",
@@ -968,11 +958,10 @@
                                     "        fullscreen: true,",
                                     "        modal: true,",
                                     "        title: 'Edit',",
-                                    "        record: record // Sender record som skal fylles inn i FormPanel",
-                                    "    }).show();",
-                                    "    //sender.deselect(record);"
+                                    "        record: selected[0].data // Sender record som skal fylles inn i FormPanel",
+                                    "    }).show();"
                                 ],
-                                "name": "itemtap",
+                                "name": "select",
                                 "scope": "me"
                             },
                             "configAlternates": {
