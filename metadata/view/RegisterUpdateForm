@@ -36,12 +36,14 @@
             },
             "codeClass": null,
             "userConfig": {
+                "id": "regUpdStartField",
                 "label": "Start",
                 "placeholder": "dd/mm/yy hh:mm"
             },
             "configAlternates": {
                 "label": "string",
-                "placeholder": "string"
+                "placeholder": "string",
+                "id": "string"
             },
             "name": "MyTextField",
             "designerId": "c724aff8-e5f5-4dea-b3fb-ffd8b510f28f"
@@ -57,13 +59,15 @@
                 "bind": [
                     "{Hours.stop}"
                 ],
+                "id": "regUpdStopField",
                 "label": "Stop",
                 "placeholder": "dd/mm/yy hh:mm"
             },
             "configAlternates": {
                 "label": "string",
                 "placeholder": "string",
-                "bind": "object"
+                "bind": "object",
+                "id": "string"
             },
             "name": "MyTextField1",
             "designerId": "c514807f-7164-4df9-997f-86b2310deab7"
@@ -79,13 +83,15 @@
                 "bind": [
                     "{Hours.duration}"
                 ],
+                "id": "regUpdDurationField",
                 "label": "Hours",
                 "placeholder": "hh:mm"
             },
             "configAlternates": {
                 "label": "string",
                 "placeholder": "string",
-                "bind": "object"
+                "bind": "object",
+                "id": "string"
             },
             "name": "MyNumberField",
             "designerId": "73dbae70-d72f-4e06-8b52-97d57768f853"
@@ -101,11 +107,13 @@
                 "bind": [
                     "{Hours.comment}"
                 ],
+                "id": "regUpdCommentField",
                 "label": "Comment"
             },
             "configAlternates": {
                 "label": "string",
-                "bind": "object"
+                "bind": "object",
+                "id": "string"
             },
             "name": "MyTextField2",
             "designerId": "cd5bcf27-c6fe-4962-a9d2-0a71370c13d8"
@@ -223,6 +231,37 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormpanelInitialize",
+                "implHandler": [
+                    "var record = component.getRecord();",
+                    "if (record !== null) {",
+                    "    Ext.getCmp(\"regUpdStartField\").setValue(record.data.start);",
+                    "    Ext.getCmp(\"regUpdStopField\").setValue(record.data.stop);",
+                    "    Ext.getCmp(\"regUpdDurationField\").setValue(record.data.duration);",
+                    "    Ext.getCmp(\"regUpdCommentField\").setValue(record.data.comment);",
+                    "",
+                    "}"
+                ],
+                "name": "initialize",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onFormpanelInitialize",
+            "designerId": "88f8536e-63d6-42f7-88d9-52f69890d90d"
         }
     ]
 }

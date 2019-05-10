@@ -35,6 +35,17 @@ Ext.define('HoursLogger.view.RegisterUpdateFormViewController', {
             record = view.getRecord();
         view.destroy();
         record.reject();
+    },
+
+    onFormpanelInitialize: function(component, eOpts) {
+        var record = component.getRecord();
+        if (record !== null) {
+            Ext.getCmp("regUpdStartField").setValue(record.data.start);
+            Ext.getCmp("regUpdStopField").setValue(record.data.stop);
+            Ext.getCmp("regUpdDurationField").setValue(record.data.duration);
+            Ext.getCmp("regUpdCommentField").setValue(record.data.comment);
+
+        }
     }
 
 });

@@ -38,24 +38,28 @@ Ext.define('HoursLogger.view.RegisterUpdateForm', {
     items: [
         {
             xtype: 'textfield',
+            id: 'regUpdStartField',
             label: 'Start',
             placeholder: 'dd/mm/yy hh:mm'
         },
         {
             xtype: 'textfield',
             bind: '{Hours.stop}',
+            id: 'regUpdStopField',
             label: 'Stop',
             placeholder: 'dd/mm/yy hh:mm'
         },
         {
             xtype: 'numberfield',
             bind: '{Hours.duration}',
+            id: 'regUpdDurationField',
             label: 'Hours',
             placeholder: 'hh:mm'
         },
         {
             xtype: 'textfield',
             bind: '{Hours.comment}',
+            id: 'regUpdCommentField',
             label: 'Comment'
         },
         {
@@ -80,6 +84,9 @@ Ext.define('HoursLogger.view.RegisterUpdateForm', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        initialize: 'onFormpanelInitialize'
+    }
 
 });

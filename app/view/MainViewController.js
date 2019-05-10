@@ -87,7 +87,6 @@ Ext.define('HoursLogger.view.MainViewController', {
             title: 'Edit',
             record: selected[0] // Sender record som skal fylles inn i FormPanel
         }).show();
-        //sender.deselect(record);
     },
 
     onGridInitialize: function(component, eOpts) {
@@ -151,15 +150,13 @@ Ext.define('HoursLogger.view.MainViewController', {
     },
 
     onItemSelected1: function(dataview, selected, eOpts) {
-        console.log(selected[0].data);
-        //console.log(sender);
         Ext.create({
             xtype: 'registerupdateform',
             centered: true,
             fullscreen: true,
             modal: true,
             title: 'Edit',
-            record: selected[0].data // Sender record som skal fylles inn i FormPanel
+            record: selected[0] // Sender record som skal fylles inn i FormPanel
         }).show();
     }
 

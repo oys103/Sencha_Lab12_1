@@ -444,8 +444,7 @@
                                     "        modal: true,",
                                     "        title: 'Edit',",
                                     "        record: selected[0] // Sender record som skal fylles inn i FormPanel",
-                                    "    }).show();",
-                                    "    //sender.deselect(record);"
+                                    "    }).show();"
                                 ],
                                 "name": "select",
                                 "scope": "me"
@@ -950,16 +949,14 @@
                             "userConfig": {
                                 "fn": "onItemSelected1",
                                 "implHandler": [
-                                    "console.log(selected[0].data);",
-                                    "//console.log(sender);",
-                                    "Ext.create({",
-                                    "        xtype: 'registerupdateform',",
-                                    "        centered: true,",
-                                    "        fullscreen: true,",
-                                    "        modal: true,",
-                                    "        title: 'Edit',",
-                                    "        record: selected[0].data // Sender record som skal fylles inn i FormPanel",
-                                    "    }).show();"
+                                    "        Ext.create({",
+                                    "            xtype: 'registerupdateform',",
+                                    "            centered: true,",
+                                    "            fullscreen: true,",
+                                    "            modal: true,",
+                                    "            title: 'Edit',",
+                                    "            record: selected[0] // Sender record som skal fylles inn i FormPanel",
+                                    "        }).show();"
                                 ],
                                 "name": "select",
                                 "scope": "me"
