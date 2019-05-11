@@ -40,21 +40,30 @@ Ext.define('HoursLogger.view.RegisterUpdateForm', {
             xtype: 'textfield',
             id: 'regUpdStartField',
             label: 'Start',
-            placeholder: 'dd/mm/yy hh:mm'
+            placeholder: 'dd/mm/yy hh:mm',
+            listeners: {
+                focusleave: 'onRegUpdStartFieldFocusleave'
+            }
         },
         {
             xtype: 'textfield',
             bind: '{Hours.stop}',
             id: 'regUpdStopField',
             label: 'Stop',
-            placeholder: 'dd/mm/yy hh:mm'
+            placeholder: 'dd/mm/yy hh:mm',
+            listeners: {
+                focusleave: 'onRegUpdStopFieldFocusleave'
+            }
         },
         {
             xtype: 'numberfield',
             bind: '{Hours.duration}',
             id: 'regUpdDurationField',
             label: 'Hours',
-            placeholder: 'hh:mm'
+            placeholder: 'hh:mm',
+            listeners: {
+                focusleave: 'onRegUpdDurationFieldFocusleave'
+            }
         },
         {
             xtype: 'textfield',

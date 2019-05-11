@@ -46,7 +46,51 @@
                 "id": "string"
             },
             "name": "MyTextField",
-            "designerId": "c724aff8-e5f5-4dea-b3fb-ffd8b510f28f"
+            "designerId": "c724aff8-e5f5-4dea-b3fb-ffd8b510f28f",
+            "cn": [
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onRegUpdStartFieldFocusleave",
+                        "implHandler": [
+                            "//12.12.2012 12:12",
+                            "var start = Ext.getCmp(\"regUpdStartField\").getValue();",
+                            "var stop = Ext.getCmp(\"regUpdStopField\").getValue();",
+                            "var time = Ext.getCmp(\"regUpdDurationField\").getValue();",
+                            "if(",
+                            "    ((stop === null || stop === \"\") && (time !== null && time !== \"\") ||",
+                            "        (time === null || time === \"\") && (stop !== null && stop !== \"\")) &&",
+                            "    start !== null && start !== \"\"){",
+                            "    debugger;",
+                            "    var dStart = new Date(start);",
+                            "    Ext.getCmp(\"regUpdStartField\").setValue(Ext.Date.format(dStart, 'C'));",
+                            "    var dStop = new Date(stop);",
+                            "    if (stop === null || stop === \"\"){",
+                            "        Ext.getCmp(\"regUpdStopField\").setValue(Ext.Date.format(Ext.Date.add(dStart, Ext.Date.HOUR, time), 'C'));",
+                            "    } else if (time === null || time === \"\"){",
+                            "        Ext.getCmp(\"regUpdStopField\").setValue(Ext.Date.format(dStop, 'C'));",
+                            "        Ext.getCmp(\"regUpdDurationField\").setValue(Ext.Date.diff(dStart, dStop, Ext.Date.HOUR));",
+                            "    }",
+                            "}"
+                        ],
+                        "name": "focusleave",
+                        "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
+                    "name": "onRegUpdStartFieldFocusleave",
+                    "designerId": "f2d6766f-e969-44b7-a1be-0eb3813abcd0"
+                }
+            ]
         },
         {
             "type": "Ext.field.Text",
@@ -70,7 +114,50 @@
                 "id": "string"
             },
             "name": "MyTextField1",
-            "designerId": "c514807f-7164-4df9-997f-86b2310deab7"
+            "designerId": "c514807f-7164-4df9-997f-86b2310deab7",
+            "cn": [
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onRegUpdStopFieldFocusleave",
+                        "implHandler": [
+                            "var start = Ext.getCmp(\"regUpdStartField\").getValue();",
+                            "var stop = Ext.getCmp(\"regUpdStopField\").getValue();",
+                            "var time = Ext.getCmp(\"regUpdDurationField\").getValue();",
+                            "if(",
+                            "    ((start === null || start === \"\") && (time !== null && time !== \"\") ||",
+                            "        (time === null || time === \"\") && (start !== null && start !== \"\")) &&",
+                            "    stop !== null && stop !== \"\"){",
+                            "    var dStart = new Date(start);",
+                            "    Ext.getCmp(\"regUpdStartField\").setValue(Ext.Date.format(dStart, 'C'));",
+                            "    var dStop = new Date(stop);",
+                            "    Ext.getCmp(\"regUpdStopField\").setValue(Ext.Date.format(dStop, 'C'));",
+                            "    if (start === null || start === \"\"){",
+                            "        Ext.getCmp(\"regUpdStartField\").setValue(Ext.Date.format(Ext.Date.subtract(dStart, Ext.Date.HOUR, time), 'C'));",
+                            "    } else if (time === null || time === \"\"){",
+                            "        Ext.getCmp(\"regUpdStartField\").setValue(Ext.Date.format(dStart, 'C'));",
+                            "        Ext.getCmp(\"regUpdDurationField\").setValue(Ext.Date.diff(dStart, dStop, Ext.Date.HOUR));",
+                            "    }",
+                            "}"
+                        ],
+                        "name": "focusleave",
+                        "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
+                    "name": "onRegUpdStopFieldFocusleave",
+                    "designerId": "779c6d9a-8f76-4976-a67b-72b6d2f11757"
+                }
+            ]
         },
         {
             "type": "Ext.field.Number",
@@ -94,7 +181,53 @@
                 "id": "string"
             },
             "name": "MyNumberField",
-            "designerId": "73dbae70-d72f-4e06-8b52-97d57768f853"
+            "designerId": "73dbae70-d72f-4e06-8b52-97d57768f853",
+            "cn": [
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|commentHeader": [
+                            "Broken? Good luck!"
+                        ],
+                        "fn": "onRegUpdDurationFieldFocusleave",
+                        "implHandler": [
+                            "var start = Ext.getCmp(\"regUpdStartField\").getValue();",
+                            "var stop = Ext.getCmp(\"regUpdStopField\").getValue();",
+                            "var time = Ext.getCmp(\"regUpdDurationField\").getValue();",
+                            "if(",
+                            "    ((start === null || start === \"\") && (stop !== null && stop !== \"\") ||",
+                            "        (stop === null || stop === \"\") && (start !== null && start !== \"\")) &&",
+                            "    time !== null && time !== \"\"){",
+                            "    var dStart = new Date(start);",
+                            "    var dStop = new Date(stop);",
+                            "    if (start === null || start === \"\"){",
+                            "        Ext.getCmp(\"regUpdStopField\").setValue(Ext.Date.format(dStop, 'C'));",
+                            "        Ext.getCmp(\"regUpdStartField\").setValue(Ext.Date.format(Ext.Date.subtract(dStart, Ext.Date.HOUR, time), 'C'));",
+                            "    } else if (stop === null || stop === \"\"){",
+                            "        Ext.getCmp(\"regUpdStartField\").setValue(Ext.Date.format(dStart, 'C'));",
+                            "        Ext.getCmp(\"regUpdStopField\").setValue(Ext.Date.format(Ext.Date.add(dStart, Ext.Date.HOUR, time), 'C'));",
+                            "    }",
+                            "}"
+                        ],
+                        "name": "focusleave",
+                        "scope": "me"
+                    },
+                    "configAlternates": {
+                        "designer|commentHeader": "comment",
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
+                    "name": "onRegUpdDurationFieldFocusleave",
+                    "designerId": "9f1df4b9-4f22-466e-b1a8-c6b9b4ceb1f1"
+                }
+            ]
         },
         {
             "type": "Ext.field.Text",
