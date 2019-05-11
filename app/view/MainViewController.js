@@ -39,6 +39,25 @@ Ext.define('HoursLogger.view.MainViewController', {
 
     },
 
+    filterByWeek: function() {
+                var firstDay = Ext.getCmp('firstDayOfWeekLabel').getHtml();
+                var lastDay = Ext.getCmp('lastDayOfWeekLabel').getHtml();
+        var store = Ext.getStore('Hours');
+        store.clearFilter();
+        store.filterBy(function(record) {
+            if(record.get('start') >= firstDay && record.get('start') <= lastDay) {
+                return true;
+            }
+        });
+    },
+
+    filterByDay: function() {
+        var date = Ext.getCmp('dateLabel').getHtml();
+        var store = Ext.getStore('Hours');
+        store.clearFilter();
+        store.filter('start', date);
+    },
+
     onAddHoursButtonTap: function(button, e, eOpts) {
         var panel = Ext.create({
             xtype: 'registerupdateform',
@@ -54,14 +73,13 @@ Ext.define('HoursLogger.view.MainViewController', {
         var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, -1);
         var dateString = Ext.Date.format(date, 'Y-m-d');
         label.setHtml(dateString);
-        Ext.getStore('Hours').filter('start', dateString);
+        this.filterByDay();
         this.calculateDaySum();
     },
 
     onDateLabelInitialize: function(component, eOpts) {
         var currentDate = Ext.Date.format(new Date(), 'Y-m-d');
         component.setHtml(currentDate);
-        Ext.getStore('Hours').filter('start', currentDate);
     },
 
     onAddDayTap: function(button, e, eOpts) {
@@ -69,7 +87,7 @@ Ext.define('HoursLogger.view.MainViewController', {
         var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, 1);
         var dateString = Ext.Date.format(date, 'Y-m-d');
         label.setHtml(dateString);
-        Ext.getStore('Hours').filter('start', dateString);
+        this.filterByDay();
         this.calculateDaySum();
 
     },
@@ -89,8 +107,8 @@ Ext.define('HoursLogger.view.MainViewController', {
         }).show();
     },
 
-    onGridInitialize: function(component, eOpts) {
-
+    onDayShow: function(component, eOpts) {
+        this.filterByDay();
     },
 
     onAddHoursButtonTap1: function(button, e, eOpts) {
@@ -110,7 +128,7 @@ Ext.define('HoursLogger.view.MainViewController', {
         var lastDay = Ext.Date.format(Ext.Date.add(new Date(lastLabel.getHtml()), Ext.Date.DAY, -7), 'Y-m-d');
         firstLabel.setHtml(firstDay);
         lastLabel.setHtml(lastDay);
-        Ext.getStore('Hours').filter('start', firstDay); //TODO filtrering
+        this.filterByWeek();
         this.calculateWeekSum();
 
     },
@@ -129,8 +147,7 @@ Ext.define('HoursLogger.view.MainViewController', {
 
         firstDay.setHtml(firstDayOfWeek);
         component.setHtml(lastDayOfWeek);
-        Ext.getStore('Hours').filter('start', firstDayOfWeek); //TODO fikse filtrering
-
+        this.filterByWeek();
     },
 
     onAddWeekTap: function(button, e, eOpts) {
@@ -140,7 +157,7 @@ Ext.define('HoursLogger.view.MainViewController', {
         var lastDay = Ext.Date.format(Ext.Date.add(new Date(lastLabel.getHtml()), Ext.Date.DAY, 7), 'Y-m-d');
         firstLabel.setHtml(firstDay);
         lastLabel.setHtml(lastDay);
-        Ext.getStore('Hours').filter('start', firstDay); //TODO filtrering
+        this.filterByWeek();
         this.calculateWeekSum();
 
     },
@@ -158,6 +175,10 @@ Ext.define('HoursLogger.view.MainViewController', {
             title: 'Edit',
             record: selected[0] // Sender record som skal fylles inn i FormPanel
         }).show();
+    },
+
+    onWeekShow: function(component, eOpts) {
+        this.filterByWeek();
     }
 
 });
