@@ -21,67 +21,37 @@ Ext.define('HoursLogger.view.RegisterUpdateFormViewController', {
         'HoursLogger.store.Hours'
     ],
 
-    onRegUpdStartFieldFocusleave: function(component, event, eOpts) {
-        //12.12.2012 12:12
+    updateDuration: function() {
         var start = Ext.getCmp("regUpdStartField").getValue();
         var stop = Ext.getCmp("regUpdStopField").getValue();
-        var time = Ext.getCmp("regUpdDurationField").getValue();
-        if(
-        ((stop === null || stop === "") && (time !== null && time !== "") ||
-        (time === null || time === "") && (stop !== null && stop !== "")) &&
-        start !== null && start !== ""){
-            debugger;
-            var dStart = new Date(start);
-            Ext.getCmp("regUpdStartField").setValue(Ext.Date.format(dStart, 'C'));
-            var dStop = new Date(stop);
-            if (stop === null || stop === ""){
-                Ext.getCmp("regUpdStopField").setValue(Ext.Date.format(Ext.Date.add(dStart, Ext.Date.HOUR, time), 'C'));
-            } else if (time === null || time === ""){
-                Ext.getCmp("regUpdStopField").setValue(Ext.Date.format(dStop, 'C'));
-                Ext.getCmp("regUpdDurationField").setValue(Ext.Date.diff(dStart, dStop, Ext.Date.HOUR));
-            }
+        var dStart = new Date(start);
+        var dStop = new Date(stop);
+        if(start !== null && start !== "" &&
+           stop !== null && stop !== "" ){
+            Ext.getCmp("regUpdDurationField").setValue(Ext.Date.diff(dStart, dStop, Ext.Date.MINUTE)/60);
         }
+    },
+
+    onRegUpdStartFieldFocusleave: function(component, event, eOpts) {
+        var dStart = new Date(Ext.getCmp("regUpdStartField").getValue());
+        Ext.getCmp("regUpdStartField").setValue(Ext.Date.format(dStart, 'C'));
+        this.updateDuration();
     },
 
     onRegUpdStopFieldFocusleave: function(component, event, eOpts) {
-        var start = Ext.getCmp("regUpdStartField").getValue();
-        var stop = Ext.getCmp("regUpdStopField").getValue();
-        var time = Ext.getCmp("regUpdDurationField").getValue();
-        if(
-        ((start === null || start === "") && (time !== null && time !== "") ||
-        (time === null || time === "") && (start !== null && start !== "")) &&
-        stop !== null && stop !== ""){
-            var dStart = new Date(start);
-            Ext.getCmp("regUpdStartField").setValue(Ext.Date.format(dStart, 'C'));
-            var dStop = new Date(stop);
-            Ext.getCmp("regUpdStopField").setValue(Ext.Date.format(dStop, 'C'));
-            if (start === null || start === ""){
-                Ext.getCmp("regUpdStartField").setValue(Ext.Date.format(Ext.Date.subtract(dStart, Ext.Date.HOUR, time), 'C'));
-            } else if (time === null || time === ""){
-                Ext.getCmp("regUpdStartField").setValue(Ext.Date.format(dStart, 'C'));
-                Ext.getCmp("regUpdDurationField").setValue(Ext.Date.diff(dStart, dStop, Ext.Date.HOUR));
-            }
-        }
+        var dStop = new Date(Ext.getCmp("regUpdStopField").getValue());
+        Ext.getCmp("regUpdStopField").setValue(Ext.Date.format(dStop, 'C'));
+        this.updateDuration();
     },
 
-    /* Broken? Good luck! */
+    /*  */
     onRegUpdDurationFieldFocusleave: function(component, event, eOpts) {
         var start = Ext.getCmp("regUpdStartField").getValue();
-        var stop = Ext.getCmp("regUpdStopField").getValue();
-        var time = Ext.getCmp("regUpdDurationField").getValue();
-        if(
-        ((start === null || start === "") && (stop !== null && stop !== "") ||
-        (stop === null || stop === "") && (start !== null && start !== "")) &&
-        time !== null && time !== ""){
-            var dStart = new Date(start);
-            var dStop = new Date(stop);
-            if (start === null || start === ""){
-                Ext.getCmp("regUpdStopField").setValue(Ext.Date.format(dStop, 'C'));
-                Ext.getCmp("regUpdStartField").setValue(Ext.Date.format(Ext.Date.subtract(dStart, Ext.Date.HOUR, time), 'C'));
-            } else if (stop === null || stop === ""){
-                Ext.getCmp("regUpdStartField").setValue(Ext.Date.format(dStart, 'C'));
-                Ext.getCmp("regUpdStopField").setValue(Ext.Date.format(Ext.Date.add(dStart, Ext.Date.HOUR, time), 'C'));
-            }
+        var dStart = new Date(start);
+        var duration = Ext.getCmp("regUpdDurationField").getValue();
+        if(start !== null && start !== "" &&
+        duration !== null && duration !== "" ){
+            Ext.getCmp("regUpdStopField").setValue(Ext.Date.format(Ext.Date.add(dStart, Ext.Date.HOUR, duration), 'C'));
         }
     },
 

@@ -243,7 +243,12 @@
             "id": "ddab8727-23e7-474b-89e1-e7326c6a8a5e"
         },
         "54b9839a-27bc-48a2-a6a1-cbe39fb97844": {
-            "id": "54b9839a-27bc-48a2-a6a1-cbe39fb97844"
+            "id": "54b9839a-27bc-48a2-a6a1-cbe39fb97844",
+            "cn": [
+                {
+                    "id": "2a3a7a34-8cbf-4001-850c-4303d42219ac"
+                }
+            ]
         },
         "store": true,
         "18d66c76-2aff-4855-952a-422257767191": {
@@ -277,14 +282,14 @@
             "id": "1a72658f-ce9d-4153-bf3f-e44aef374083"
         },
         "resource": true,
-        "813a8b85-86ce-4717-9f76-f94bada83a03": {
-            "id": "813a8b85-86ce-4717-9f76-f94bada83a03",
+        "23901eb9-2c89-428c-b33d-ec1985bcbe2c": {
+            "id": "23901eb9-2c89-428c-b33d-ec1985bcbe2c",
             "cn": [
                 {
-                    "id": "9da52d86-59b8-4640-902f-79c1073c8a66",
+                    "id": "e6b5c922-8654-4907-bfbc-2d8de5c2c872",
                     "cn": [
                         {
-                            "id": "561807dc-e818-4a20-93fe-17fa35762e66"
+                            "id": "9ee4c30e-8261-469c-b8a9-e13c015abbf5"
                         }
                     ]
                 }
@@ -302,25 +307,18 @@
     },
     "tabState": {
         "openTabs": [
-            "85a8bb26-c02a-47ff-8985-6af9716cbb5f",
             "75ef0948-1838-43c6-a1d2-e7682ce4ddfb",
-            "7385d6ac-c510-4262-926c-d3163c79c55a",
-            "2674c4cd-153d-4007-8fed-6998d2a1f598",
-            "application",
-            "e58928c7-9896-4656-8234-304319a32cb8",
-            "54b9839a-27bc-48a2-a6a1-cbe39fb97844",
-            "18d66c76-2aff-4855-952a-422257767191",
-            "1a72658f-ce9d-4153-bf3f-e44aef374083"
+            "54b9839a-27bc-48a2-a6a1-cbe39fb97844"
         ]
     },
     "canvasState": {
-        "topInstance": "85a8bb26-c02a-47ff-8985-6af9716cbb5f"
+        "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "54b9839a-27bc-48a2-a6a1-cbe39fb97844",
-        "selectedInstance": "54b9839a-27bc-48a2-a6a1-cbe39fb97844"
+        "topInstance": "75ef0948-1838-43c6-a1d2-e7682ce4ddfb",
+        "selectedInstance": "73dbae70-d72f-4e06-8b52-97d57768f853"
     },
-    "editMode": "design",
+    "editMode": "code",
     "userSettings": {
         "no-cmd": false
     }
