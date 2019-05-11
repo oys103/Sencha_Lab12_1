@@ -15,16 +15,5 @@
 
 Ext.define('HoursLogger.controller.MainViewController', {
     extend: 'Ext.app.Controller',
-    alias: 'controller.mainviewcontroller',
-
-    control: {
-        "label#dateLabel": {
-            updatedata: 'onDateLabelUpdatedata'
-        }
-    },
-
-    onDateLabelUpdatedata: function(component, newData, eOpts) {
-
-    }
-
+    alias: 'controller.mainviewcontroller'
 });

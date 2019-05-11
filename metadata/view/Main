@@ -149,7 +149,7 @@
                                             "        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, -1);",
                                             "        var dateString = Ext.Date.format(date, 'Y-m-d');",
                                             "        label.setHtml(dateString);",
-                                            "        Ext.getStore('Hours').filter('start', dateString);",
+                                            "        this.filterByDay();",
                                             "        this.calculateDaySum();"
                                         ],
                                         "name": "tap",
@@ -195,8 +195,7 @@
                                         "fn": "onDateLabelInitialize",
                                         "implHandler": [
                                             "var currentDate = Ext.Date.format(new Date(), 'Y-m-d');",
-                                            "component.setHtml(currentDate);",
-                                            "Ext.getStore('Hours').filter('start', currentDate);"
+                                            "component.setHtml(currentDate);"
                                         ],
                                         "name": "initialize",
                                         "scope": "me"
@@ -244,7 +243,7 @@
                                             "        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, 1);",
                                             "        var dateString = Ext.Date.format(date, 'Y-m-d');",
                                             "        label.setHtml(dateString);",
-                                            "        Ext.getStore('Hours').filter('start', dateString);",
+                                            "        this.filterByDay();",
                                             "        this.calculateDaySum();",
                                             ""
                                         ],
@@ -458,28 +457,32 @@
                             },
                             "name": "onPopupForm",
                             "designerId": "065ade6e-b664-4dec-8796-1ef7c46630bb"
-                        },
-                        {
-                            "type": "viewcontrollereventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "onGridInitialize",
-                                "name": "initialize",
-                                "scope": "me"
-                            },
-                            "configAlternates": {
-                                "fn": "string",
-                                "name": "string",
-                                "scope": "string"
-                            },
-                            "name": "onGridInitialize",
-                            "designerId": "c9df05d3-6cfa-4c61-a028-7b61b98b1394"
                         }
                     ]
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onDayShow",
+                        "implHandler": [
+                            "this.filterByDay();"
+                        ],
+                        "name": "show",
+                        "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
+                    "name": "onDayShow",
+                    "designerId": "c4c4236a-df34-4587-a304-555ce8750a84"
                 }
             ]
         },
@@ -606,14 +609,14 @@
                                     "userConfig": {
                                         "fn": "onSubtractWeekTap",
                                         "implHandler": [
-                                            "        var firstLabel = Ext.getCmp('firstDayOfWeekLabel');",
-                                            "        var lastLabel = Ext.getCmp('lastDayOfWeekLabel');",
-                                            "        var firstDay = Ext.Date.format(Ext.Date.add(new Date(firstLabel.getHtml()), Ext.Date.DAY, -7), 'Y-m-d');",
-                                            "        var lastDay = Ext.Date.format(Ext.Date.add(new Date(lastLabel.getHtml()), Ext.Date.DAY, -7), 'Y-m-d');",
-                                            "        firstLabel.setHtml(firstDay);",
-                                            "        lastLabel.setHtml(lastDay);",
-                                            "        Ext.getStore('Hours').filter('start', firstDay); //TODO filtrering",
-                                            "        this.calculateWeekSum();",
+                                            "var firstLabel = Ext.getCmp('firstDayOfWeekLabel');",
+                                            "var lastLabel = Ext.getCmp('lastDayOfWeekLabel');",
+                                            "var firstDay = Ext.Date.format(Ext.Date.add(new Date(firstLabel.getHtml()), Ext.Date.DAY, -7), 'Y-m-d');",
+                                            "var lastDay = Ext.Date.format(Ext.Date.add(new Date(lastLabel.getHtml()), Ext.Date.DAY, -7), 'Y-m-d');",
+                                            "firstLabel.setHtml(firstDay);",
+                                            "lastLabel.setHtml(lastDay);",
+                                            "this.filterByWeek();",
+                                            "this.calculateWeekSum();",
                                             ""
                                         ],
                                         "name": "tap",
@@ -705,8 +708,7 @@
                                             "",
                                             "firstDay.setHtml(firstDayOfWeek);",
                                             "component.setHtml(lastDayOfWeek);",
-                                            "Ext.getStore('Hours').filter('start', firstDayOfWeek); //TODO fikse filtrering",
-                                            ""
+                                            "this.filterByWeek();"
                                         ],
                                         "name": "initialize",
                                         "scope": "me"
@@ -756,7 +758,7 @@
                                             "        var lastDay = Ext.Date.format(Ext.Date.add(new Date(lastLabel.getHtml()), Ext.Date.DAY, 7), 'Y-m-d');",
                                             "        firstLabel.setHtml(firstDay);",
                                             "        lastLabel.setHtml(lastDay);",
-                                            "        Ext.getStore('Hours').filter('start', firstDay); //TODO filtrering",
+                                            "        this.filterByWeek();",
                                             "        this.calculateWeekSum();",
                                             ""
                                         ],
@@ -972,6 +974,30 @@
                             "designerId": "01186d38-236d-41ff-9865-24ec1c0b7a38"
                         }
                     ]
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onWeekShow",
+                        "implHandler": [
+                            "this.filterByWeek();"
+                        ],
+                        "name": "show",
+                        "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
+                    "name": "onWeekShow",
+                    "designerId": "72dc064e-8a81-423f-8d57-2c65a3a0aa92"
                 }
             ]
         },

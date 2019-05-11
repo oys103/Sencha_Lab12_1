@@ -122,11 +122,13 @@ Ext.define('HoursLogger.view.Main', {
                         }
                     ],
                     listeners: {
-                        select: 'onPopupForm',
-                        initialize: 'onGridInitialize'
+                        select: 'onPopupForm'
                     }
                 }
-            ]
+            ],
+            listeners: {
+                show: 'onDayShow'
+            }
         },
         {
             xtype: 'container',
@@ -227,7 +229,10 @@ Ext.define('HoursLogger.view.Main', {
                         select: 'onItemSelected1'
                     }
                 }
-            ]
+            ],
+            listeners: {
+                show: 'onWeekShow'
+            }
         },
         {
             xtype: 'container',
