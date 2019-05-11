@@ -38,12 +38,14 @@
             "userConfig": {
                 "id": "regUpdStartField",
                 "label": "Start",
+                "minWidth": "350px",
                 "placeholder": "dd/mm/yy hh:mm"
             },
             "configAlternates": {
                 "label": "string",
                 "placeholder": "string",
-                "id": "string"
+                "id": "string",
+                "minWidth": "auto"
             },
             "name": "MyTextField",
             "designerId": "c724aff8-e5f5-4dea-b3fb-ffd8b510f28f",
@@ -58,8 +60,6 @@
                     "userConfig": {
                         "fn": "onRegUpdStartFieldFocusleave",
                         "implHandler": [
-                            "var dStart = new Date(Ext.getCmp(\"regUpdStartField\").getValue());",
-                            "Ext.getCmp(\"regUpdStartField\").setValue(Ext.Date.format(dStart, 'C'));",
                             "this.updateDuration();"
                         ],
                         "name": "focusleave",
@@ -110,8 +110,6 @@
                     "userConfig": {
                         "fn": "onRegUpdStopFieldFocusleave",
                         "implHandler": [
-                            "var dStop = new Date(Ext.getCmp(\"regUpdStopField\").getValue());",
-                            "Ext.getCmp(\"regUpdStopField\").setValue(Ext.Date.format(dStop, 'C'));",
                             "this.updateDuration();"
                         ],
                         "name": "focusleave",

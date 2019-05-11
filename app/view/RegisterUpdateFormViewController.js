@@ -24,8 +24,17 @@ Ext.define('HoursLogger.view.RegisterUpdateFormViewController', {
     updateDuration: function() {
         var start = Ext.getCmp("regUpdStartField").getValue();
         var stop = Ext.getCmp("regUpdStopField").getValue();
+
         var dStart = new Date(start);
+        if(start !== null && start !== ""){
+            Ext.getCmp("regUpdStartField").setValue(Ext.Date.format(dStart, 'C'));
+        }
+
         var dStop = new Date(stop);
+        if(stop !== null && stop !== ""){
+            Ext.getCmp("regUpdStopField").setValue(Ext.Date.format(dStop, 'C'));
+        }
+
         if(start !== null && start !== "" &&
            stop !== null && stop !== "" ){
             Ext.getCmp("regUpdDurationField").setValue(Ext.Date.diff(dStart, dStop, Ext.Date.MINUTE)/60);
@@ -33,14 +42,10 @@ Ext.define('HoursLogger.view.RegisterUpdateFormViewController', {
     },
 
     onRegUpdStartFieldFocusleave: function(component, event, eOpts) {
-        var dStart = new Date(Ext.getCmp("regUpdStartField").getValue());
-        Ext.getCmp("regUpdStartField").setValue(Ext.Date.format(dStart, 'C'));
         this.updateDuration();
     },
 
     onRegUpdStopFieldFocusleave: function(component, event, eOpts) {
-        var dStop = new Date(Ext.getCmp("regUpdStopField").getValue());
-        Ext.getCmp("regUpdStopField").setValue(Ext.Date.format(dStop, 'C'));
         this.updateDuration();
     },
 

@@ -39,6 +39,7 @@ Ext.define('HoursLogger.view.RegisterUpdateForm', {
         {
             xtype: 'textfield',
             id: 'regUpdStartField',
+            minWidth: '350px',
             label: 'Start',
             placeholder: 'dd/mm/yy hh:mm',
             listeners: {
