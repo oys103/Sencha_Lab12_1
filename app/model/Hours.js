@@ -23,6 +23,9 @@ Ext.define('HoursLogger.model.Hours', {
 
     fields: [
         {
+            name: 'date'
+        },
+        {
             name: 'start'
         },
         {

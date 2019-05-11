@@ -39,6 +39,12 @@ Ext.define('HoursLogger.view.MainViewController', {
 
     },
 
+    filterDayView: function() {
+        var day = Ext.getCmp('dateLabel').getHtml();
+        console.log(day);
+        Ext.getStore('Hours').filter.clear();//('start', day);
+    },
+
     onAddHoursButtonTap: function(button, e, eOpts) {
         var panel = Ext.create({
             xtype: 'registerupdateform',
@@ -69,7 +75,8 @@ Ext.define('HoursLogger.view.MainViewController', {
         var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, 1);
         var dateString = Ext.Date.format(date, 'Y-m-d');
         label.setHtml(dateString);
-        Ext.getStore('Hours').filter('start', dateString);
+        //Ext.getStore('Hours').filter('start', dateString);
+        this.filterDayView();
         this.calculateDaySum();
 
     },

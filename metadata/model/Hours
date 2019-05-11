@@ -22,6 +22,22 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "date"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "field4",
+            "designerId": "094c28d1-77e9-4fdf-ad51-e83f2a695800"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "start"
             },
             "configAlternates": {

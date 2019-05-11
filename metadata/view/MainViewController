@@ -68,6 +68,28 @@
             },
             "name": "calculateWeekSum",
             "designerId": "23051d8a-2773-4d31-a924-45646b7e2c11"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "filterDayView",
+                "implHandler": [
+                    "var day = Ext.getCmp('dateLabel').getHtml();",
+                    "console.log(day);",
+                    "Ext.getStore('Hours').filter.clear();//('start', day);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterDayView",
+            "designerId": "1622fa82-780c-408b-9ef4-87e7c71ac614"
         }
     ]
 }

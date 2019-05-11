@@ -24,6 +24,7 @@ Ext.define('HoursLogger.view.Main', {
         'Ext.Button',
         'Ext.Label',
         'Ext.grid.Grid',
+        'Ext.grid.column.Date',
         'Ext.grid.column.Number'
     ],
 
@@ -96,6 +97,12 @@ Ext.define('HoursLogger.view.Main', {
                     store: 'Hours',
                     columns: [
                         {
+                            xtype: 'datecolumn',
+                            width: 80,
+                            dataIndex: 'date',
+                            text: 'Date'
+                        },
+                        {
                             xtype: 'gridcolumn',
                             width: 80,
                             dataIndex: 'start',
@@ -162,7 +169,7 @@ Ext.define('HoursLogger.view.Main', {
                         },
                         {
                             xtype: 'label',
-                            html: '&ensp; - &ensp;  '
+                            html: '-'
                         },
                         {
                             xtype: 'label',
