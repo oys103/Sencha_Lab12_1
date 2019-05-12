@@ -39,6 +39,17 @@ Ext.define('HoursLogger.view.MainViewController', {
 
     },
 
+    calculateMonthSum: function() {
+                var label = Ext.getCmp('monthSumLabel');
+                var store = Ext.getStore('Hours');
+                var sum = 0;
+                for (var i = 0; i < store.getCount(); i++){
+                    sum += store.data.items[i].data.duration;
+                }
+                label.setHtml('Sum: ' + sum + ' hour(s)');
+
+    },
+
     filterByWeek: function() {
                 var firstDay = Ext.getCmp('firstDayOfWeekLabel').getHtml();
                 var lastDay = Ext.getCmp('lastDayOfWeekLabel').getHtml();
@@ -56,6 +67,14 @@ Ext.define('HoursLogger.view.MainViewController', {
         var store = Ext.getStore('Hours');
         store.clearFilter();
         store.filter('start', date);
+    },
+
+    filterByMonth: function() {
+        var month = Ext.getCmp('monthLabel').getHtml();
+        var monthString = Ext.Date.format(new Date(month), 'Y-m');
+                var store = Ext.getStore('Hours');
+                store.clearFilter();
+        store.filter('start', monthString);
     },
 
     onAddHoursButtonTap: function(button, e, eOpts) {
@@ -182,7 +201,7 @@ Ext.define('HoursLogger.view.MainViewController', {
         this.filterByWeek();
     },
 
-    onAddMonthButtonTap: function(button, e, eOpts) {
+    onAddHoursButtonTap2: function(button, e, eOpts) {
         var panel = Ext.create({
             xtype: 'registerupdateform',
             centered: true,
@@ -194,32 +213,32 @@ Ext.define('HoursLogger.view.MainViewController', {
 
     onSubtractMonthTap: function(button, e, eOpts) {
         var label = Ext.getCmp('monthLabel');
-        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, -1);
-        var dateString = Ext.Date.format(date, 'F');
+        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.MONTH, -1);
+        var dateString = Ext.Date.format(date, 'F-Y');
         label.setHtml(dateString);
-        this.filterByDay();
-        this.calculateDaySum();
+        this.filterByMonth();
+        this.calculateMonthSum();
     },
 
     onMonthLabelInitialize: function(component, eOpts) {
-        //var date = new Date();
-        var month = Ext.Date.format(new Date(), 'F');//date.toLocaleString('en-us', { month: 'long' });
+        var month = Ext.Date.format(new Date(), 'F-Y');
         component.setHtml(month);
+        this.filterByMonth();
     },
 
-    onAddDayTap1: function(button, e, eOpts) {
-        var label = Ext.getCmp('dateLabel');
-        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, 1);
-        var dateString = Ext.Date.format(date, 'Y-m-d');
+    onAddMonthTap: function(button, e, eOpts) {
+        var label = Ext.getCmp('monthLabel');
+        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.MONTH, 1);
+        var dateString = Ext.Date.format(date, 'F-Y');
         label.setHtml(dateString);
-        this.filterByDay();
-        this.calculateDaySum();
+        this.filterByMonth();
+        this.calculateMonthSum();
 
     },
 
-    onDaySumLabelInitialize1: function(component, eOpts) {
-        this.filterByDay();
-        this.calculateDaySum();
+    onMonthSumLabelInitialize: function(component, eOpts) {
+        this.filterByMonth();
+        this.calculateMonthSum();
     },
 
     onPopupForm1: function(dataview, selected, eOpts) {
@@ -233,8 +252,8 @@ Ext.define('HoursLogger.view.MainViewController', {
         }).show();
     },
 
-    onDayShow1: function(component, eOpts) {
-        this.filterByDay();
+    onMonthShow: function(component, eOpts) {
+        this.filterByMonth();
     }
 
 });

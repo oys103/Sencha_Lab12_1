@@ -1011,7 +1011,7 @@
             "codeClass": null,
             "userConfig": {
                 "iconAlign": "top",
-                "iconCls": "x-fa fa-calendar-o",
+                "iconCls": "x-fa fa-calendar",
                 "title": "Month"
             },
             "configAlternates": {
@@ -1073,7 +1073,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "onAddMonthButtonTap",
+                                        "fn": "onAddHoursButtonTap2",
                                         "implHandler": [
                                             "var panel = Ext.create({",
                                             "                                    xtype: 'registerupdateform',",
@@ -1092,7 +1092,7 @@
                                         "name": "string",
                                         "scope": "string"
                                     },
-                                    "name": "onAddMonthButtonTap",
+                                    "name": "onAddHoursButtonTap2",
                                     "designerId": "991c0247-487f-4afc-b07d-2ab6a2de6091"
                                 }
                             ]
@@ -1126,11 +1126,11 @@
                                         "fn": "onSubtractMonthTap",
                                         "implHandler": [
                                             "        var label = Ext.getCmp('monthLabel');",
-                                            "        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, -1);",
-                                            "        var dateString = Ext.Date.format(date, 'F');",
+                                            "        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.MONTH, -1);",
+                                            "        var dateString = Ext.Date.format(date, 'F-Y');",
                                             "        label.setHtml(dateString);",
-                                            "        this.filterByDay();",
-                                            "        this.calculateDaySum();"
+                                            "        this.filterByMonth();",
+                                            "        this.calculateMonthSum();"
                                         ],
                                         "name": "tap",
                                         "scope": "me"
@@ -1174,9 +1174,9 @@
                                     "userConfig": {
                                         "fn": "onMonthLabelInitialize",
                                         "implHandler": [
-                                            "//var date = new Date();",
-                                            "var month = Ext.Date.format(new Date(), 'F');//date.toLocaleString('en-us', { month: 'long' });",
-                                            "component.setHtml(month);"
+                                            "var month = Ext.Date.format(new Date(), 'F-Y');",
+                                            "component.setHtml(month);",
+                                            "this.filterByMonth();"
                                         ],
                                         "name": "initialize",
                                         "scope": "me"
@@ -1218,14 +1218,14 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "onAddDayTap1",
+                                        "fn": "onAddMonthTap",
                                         "implHandler": [
-                                            "        var label = Ext.getCmp('dateLabel');",
-                                            "        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, 1);",
-                                            "        var dateString = Ext.Date.format(date, 'Y-m-d');",
+                                            "       var label = Ext.getCmp('monthLabel');",
+                                            "        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.MONTH, 1);",
+                                            "        var dateString = Ext.Date.format(date, 'F-Y');",
                                             "        label.setHtml(dateString);",
-                                            "        this.filterByDay();",
-                                            "        this.calculateDaySum();",
+                                            "        this.filterByMonth();",
+                                            "        this.calculateMonthSum();",
                                             ""
                                         ],
                                         "name": "tap",
@@ -1237,7 +1237,7 @@
                                         "name": "string",
                                         "scope": "string"
                                     },
-                                    "name": "onAddDayTap1",
+                                    "name": "onAddMonthTap",
                                     "designerId": "6bfb1f23-ff8a-401a-899c-030794f6cbee"
                                 }
                             ]
@@ -1253,7 +1253,7 @@
                                 "align": "right",
                                 "docked": null,
                                 "html": "Sum: 0 hours",
-                                "id": "sumLabel1"
+                                "id": "monthSumLabel"
                             },
                             "configAlternates": {
                                 "align": "string",
@@ -1272,10 +1272,10 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "onDaySumLabelInitialize1",
+                                        "fn": "onMonthSumLabelInitialize",
                                         "implHandler": [
-                                            "this.filterByDay();",
-                                            "this.calculateDaySum();"
+                                            "this.filterByMonth();",
+                                            "this.calculateMonthSum();"
                                         ],
                                         "name": "initialize",
                                         "scope": "me"
@@ -1286,7 +1286,7 @@
                                         "name": "string",
                                         "scope": "string"
                                     },
-                                    "name": "onDaySumLabelInitialize1",
+                                    "name": "onMonthSumLabelInitialize",
                                     "designerId": "af23e2a0-f55e-44e9-b636-326d2d50c583"
                                 }
                             ]
@@ -1301,9 +1301,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|displayName": "DayGrid",
+                        "designer|displayName": "MonthGrid",
                         "height": "100%",
-                        "name": "DayGrid",
+                        "name": "MonthGrid",
                         "store": "Hours",
                         "width": "100%"
                     },
@@ -1450,9 +1450,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fn": "onDayShow1",
+                        "fn": "onMonthShow",
                         "implHandler": [
-                            "this.filterByDay();"
+                            "this.filterByMonth();"
                         ],
                         "name": "show",
                         "scope": "me"
@@ -1463,37 +1463,8 @@
                         "name": "string",
                         "scope": "string"
                     },
-                    "name": "onDayShow1",
+                    "name": "onMonthShow",
                     "designerId": "a9bcb5ba-639f-41e2-862f-f2da075fa1a2"
-                }
-            ]
-        },
-        {
-            "type": "Ext.Container",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "html": "<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p>",
-                "iconAlign": "top",
-                "iconCls": "x-fa fa-calendar",
-                "title": "Month x"
-            },
-            "configAlternates": {
-                "iconAlign": "string",
-                "iconCls": "string",
-                "title": "string",
-                "html": "string"
-            },
-            "name": "MyContainer2",
-            "designerId": "7976490d-453f-4b28-88d5-4406faa1306c",
-            "customConfigs": [
-                {
-                    "group": "(Custom Properties)",
-                    "name": "iconAlign",
-                    "type": "string"
                 }
             ]
         }

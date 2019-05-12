@@ -77,6 +77,33 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "calculateMonthSum",
+                "implHandler": [
+                    "        var label = Ext.getCmp('monthSumLabel');",
+                    "        var store = Ext.getStore('Hours');",
+                    "        var sum = 0;",
+                    "        for (var i = 0; i < store.getCount(); i++){",
+                    "            sum += store.data.items[i].data.duration;",
+                    "        }",
+                    "        label.setHtml('Sum: ' + sum + ' hour(s)');",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "calculateMonthSum",
+            "designerId": "e425cc1c-5eef-4aff-9bd9-0c9c56e71d04"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "filterByWeek",
                 "implHandler": [
                     "        var firstDay = Ext.getCmp('firstDayOfWeekLabel').getHtml();",
@@ -119,6 +146,30 @@
             },
             "name": "filterByDay",
             "designerId": "5148f0de-d9ba-4a62-b322-96bd593191f5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "filterByMonth",
+                "implHandler": [
+                    "var month = Ext.getCmp('monthLabel').getHtml();",
+                    "var monthString = Ext.Date.format(new Date(month), 'Y-m');",
+                    "        var store = Ext.getStore('Hours');",
+                    "        store.clearFilter();",
+                    "store.filter('start', monthString);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterByMonth",
+            "designerId": "56629345-02f4-4f8a-b16f-c8f2f3d90264"
         }
     ]
 }

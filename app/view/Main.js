@@ -238,7 +238,7 @@ Ext.define('HoursLogger.view.Main', {
             xtype: 'container',
             iconAlign: 'top',
             title: 'Month',
-            iconCls: 'x-fa fa-calendar-o',
+            iconCls: 'x-fa fa-calendar',
             items: [
                 {
                     xtype: 'titlebar',
@@ -250,7 +250,7 @@ Ext.define('HoursLogger.view.Main', {
                             padding: 10,
                             text: '+',
                             listeners: {
-                                tap: 'onAddMonthButtonTap'
+                                tap: 'onAddHoursButtonTap2'
                             }
                         },
                         {
@@ -274,16 +274,16 @@ Ext.define('HoursLogger.view.Main', {
                             padding: 10,
                             text: '>',
                             listeners: {
-                                tap: 'onAddDayTap1'
+                                tap: 'onAddMonthTap'
                             }
                         },
                         {
                             xtype: 'label',
                             align: 'right',
-                            id: 'sumLabel1',
+                            id: 'monthSumLabel',
                             html: 'Sum: 0 hours',
                             listeners: {
-                                initialize: 'onDaySumLabelInitialize1'
+                                initialize: 'onMonthSumLabelInitialize'
                             }
                         }
                     ]
@@ -291,7 +291,7 @@ Ext.define('HoursLogger.view.Main', {
                 {
                     xtype: 'grid',
                     height: '100%',
-                    name: 'DayGrid',
+                    name: 'MonthGrid',
                     width: '100%',
                     store: 'Hours',
                     columns: [
@@ -327,15 +327,8 @@ Ext.define('HoursLogger.view.Main', {
                 }
             ],
             listeners: {
-                show: 'onDayShow1'
+                show: 'onMonthShow'
             }
-        },
-        {
-            xtype: 'container',
-            iconAlign: 'top',
-            title: 'Month x',
-            iconCls: 'x-fa fa-calendar',
-            html: '<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p>'
         }
     ]
 
