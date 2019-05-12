@@ -238,6 +238,102 @@ Ext.define('HoursLogger.view.Main', {
             xtype: 'container',
             iconAlign: 'top',
             title: 'Month',
+            iconCls: 'x-fa fa-calendar-o',
+            items: [
+                {
+                    xtype: 'titlebar',
+                    docked: 'top',
+                    items: [
+                        {
+                            xtype: 'button',
+                            border: true,
+                            padding: 10,
+                            text: '+',
+                            listeners: {
+                                tap: 'onAddMonthButtonTap'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            padding: 10,
+                            text: '<',
+                            listeners: {
+                                tap: 'onSubtractMonthTap'
+                            }
+                        },
+                        {
+                            xtype: 'label',
+                            id: 'monthLabel',
+                            html: '',
+                            listeners: {
+                                initialize: 'onMonthLabelInitialize'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            padding: 10,
+                            text: '>',
+                            listeners: {
+                                tap: 'onAddDayTap1'
+                            }
+                        },
+                        {
+                            xtype: 'label',
+                            align: 'right',
+                            id: 'sumLabel1',
+                            html: 'Sum: 0 hours',
+                            listeners: {
+                                initialize: 'onDaySumLabelInitialize1'
+                            }
+                        }
+                    ]
+                },
+                {
+                    xtype: 'grid',
+                    height: '100%',
+                    name: 'DayGrid',
+                    width: '100%',
+                    store: 'Hours',
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            width: 80,
+                            dataIndex: 'start',
+                            text: 'Start'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            width: 80,
+                            dataIndex: 'stop',
+                            text: 'Stop'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            width: 80,
+                            dataIndex: 'duration',
+                            text: 'Hours'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            width: '',
+                            minWidth: 80,
+                            dataIndex: 'comment',
+                            text: 'Comment'
+                        }
+                    ],
+                    listeners: {
+                        select: 'onPopupForm1'
+                    }
+                }
+            ],
+            listeners: {
+                show: 'onDayShow1'
+            }
+        },
+        {
+            xtype: 'container',
+            iconAlign: 'top',
+            title: 'Month x',
             iconCls: 'x-fa fa-calendar',
             html: '<h1>Not implemented</h1><p>Thats a 5 DKP minus!</p><p>Five ponts from Griffindor.</p>'
         }

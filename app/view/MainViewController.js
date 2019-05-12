@@ -93,6 +93,7 @@ Ext.define('HoursLogger.view.MainViewController', {
     },
 
     onDaySumLabelInitialize: function(component, eOpts) {
+        this.filterByDay();
         this.calculateDaySum();
     },
 
@@ -179,6 +180,61 @@ Ext.define('HoursLogger.view.MainViewController', {
 
     onWeekShow: function(component, eOpts) {
         this.filterByWeek();
+    },
+
+    onAddMonthButtonTap: function(button, e, eOpts) {
+        var panel = Ext.create({
+            xtype: 'registerupdateform',
+            centered: true,
+            fullscreen: true,
+            modal: true
+        });
+        panel.show();
+    },
+
+    onSubtractMonthTap: function(button, e, eOpts) {
+        var label = Ext.getCmp('monthLabel');
+        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, -1);
+        var dateString = Ext.Date.format(date, 'F');
+        label.setHtml(dateString);
+        this.filterByDay();
+        this.calculateDaySum();
+    },
+
+    onMonthLabelInitialize: function(component, eOpts) {
+        //var date = new Date();
+        var month = Ext.Date.format(new Date(), 'F');//date.toLocaleString('en-us', { month: 'long' });
+        component.setHtml(month);
+    },
+
+    onAddDayTap1: function(button, e, eOpts) {
+        var label = Ext.getCmp('dateLabel');
+        var date = Ext.Date.add(new Date(label.getHtml()), Ext.Date.DAY, 1);
+        var dateString = Ext.Date.format(date, 'Y-m-d');
+        label.setHtml(dateString);
+        this.filterByDay();
+        this.calculateDaySum();
+
+    },
+
+    onDaySumLabelInitialize1: function(component, eOpts) {
+        this.filterByDay();
+        this.calculateDaySum();
+    },
+
+    onPopupForm1: function(dataview, selected, eOpts) {
+        Ext.create({
+            xtype: 'registerupdateform',
+            centered: true,
+            fullscreen: true,
+            modal: true,
+            title: 'Edit',
+            record: selected[0] // Sender record som skal fylles inn i FormPanel
+        }).show();
+    },
+
+    onDayShow1: function(component, eOpts) {
+        this.filterByDay();
     }
 
 });
