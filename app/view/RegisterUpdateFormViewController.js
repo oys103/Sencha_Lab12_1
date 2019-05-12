@@ -61,12 +61,34 @@ Ext.define('HoursLogger.view.RegisterUpdateFormViewController', {
     },
 
     submitUpdate: function(button, e, eOpts) {
+        var store= Ext.getStore("Hours");
+        var start = Ext.getCmp("regUpdStartField").getValue();
+        var stop = Ext.getCmp("regUpdStopField").getValue();
+        var duration = Ext.getCmp("regUpdDurationField").getValue();
+        var comment= Ext.getCmp("regUpdCommentField").getValue();
+
         var view = this.getView();
         record = view.getRecord();
-        console.log(view);
+        if(record !== null){
+            record.set('start', start);
+            record.set('stop', stop);
+            record.set('duration', duration);
+            record.set('comment', comment);
+            record.commit();
+
+        } else {
+            var store= Ext.getStore("Hours");
+            var timeFormat={
+                start: start,
+                stop: stop,
+                duration: duration,
+                comment: comment
+            };
+            store.add(timeFormat);
+            store.sync();
+        }
+
         view.destroy();
-        console.log(record);
-        record.commit();
     },
 
     cancelUpdate: function(button, e, eOpts) {
