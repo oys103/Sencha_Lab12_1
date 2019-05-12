@@ -308,7 +308,8 @@
     "tabState": {
         "openTabs": [
             "75ef0948-1838-43c6-a1d2-e7682ce4ddfb",
-            "54b9839a-27bc-48a2-a6a1-cbe39fb97844"
+            "54b9839a-27bc-48a2-a6a1-cbe39fb97844",
+            "18d66c76-2aff-4855-952a-422257767191"
         ]
     },
     "canvasState": {
@@ -316,7 +317,7 @@
     },
     "inspectorState": {
         "topInstance": "75ef0948-1838-43c6-a1d2-e7682ce4ddfb",
-        "selectedInstance": "c724aff8-e5f5-4dea-b3fb-ffd8b510f28f"
+        "selectedInstance": "8a6cd261-32bf-4d18-8cc3-3c7ca66fe1bf"
     },
     "editMode": "code",
     "userSettings": {
